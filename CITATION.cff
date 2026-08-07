@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: If you use this audit, cite Y Recipes and the original experiment.
+title: Y Recipes — DS4 × H3 co-tenancy source audit
+type: report
+authors:
+  - name: Y
+    affiliation: zer0, LLC
+date-released: 2026-08-07
+url: https://github.com/y-computer/recipes
+repository-code: https://github.com/y-computer/recipes
+license: MIT
+references:
+  - type: software
+    title: DS4 x H3 Video Gen Factory
+    authors:
+      - name: Tony Dinh
+    url: https://github.com/tonyd2wild/ds4-h3-video-gen-factory

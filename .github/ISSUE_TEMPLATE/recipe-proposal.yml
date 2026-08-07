@@ -1,0 +1,41 @@
+name: Propose a recipe
+description: Suggest a useful workload for Y to reproduce and document.
+title: "[Recipe] "
+labels:
+  - recipe-proposal
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Useful outcome
+      description: What should a person or team be able to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Exact hardware
+      description: Include accelerators, usable memory, storage and interconnect.
+    validations:
+      required: true
+  - type: textarea
+    id: stack
+    attributes:
+      label: Proposed stack
+      description: Models, runtimes, interfaces and known licenses.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Existing evidence
+      description: Link source repositories, raw measurements and prior attempts.
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Submission check
+      options:
+        - label: I have the right to share the linked materials and test inputs.
+          required: true

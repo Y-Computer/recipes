@@ -1,0 +1,29 @@
+schema: y-recipes-components-v1
+recipe: dgx-spark-agent-video-factory
+status: source-audited
+audited_at: 2026-08-07
+source:
+  repository: https://github.com/tonyd2wild/ds4-h3-video-gen-factory
+  commit: e9d31d7bf674ed01e1fbafa4ea45d5c277708d7d
+components:
+  - name: DeepSeek V4 Flash 0731
+    source: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731
+    license: MIT
+    revision: unresolved-by-upstream-recipe
+  - name: MiniMax H3
+    source: https://huggingface.co/MiniMaxAI/MiniMax-H3
+    license: MiniMax-H3-Community-License
+    revision: unresolved-by-upstream-recipe
+    territory_gate: US-EU-UK-KR-excluded-without-separate-authorization
+  - name: ComfyUI
+    source: https://github.com/Comfy-Org/ComfyUI
+    license: GPL-3.0
+    revision: unresolved-by-upstream-recipe
+  - name: vLLM-compatible DSpark runtime
+    source: unresolved-by-upstream-recipe
+    license: mixed
+    revision: unresolved-by-upstream-recipe
+artifacts:
+  model_hashes: unresolved-by-upstream-recipe
+  container_digests: unresolved-by-upstream-recipe
+  sbom: unavailable
