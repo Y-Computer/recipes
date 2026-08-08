@@ -1,0 +1,646 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://y.computer/schemas/benchmark-run-manifest-1.0.0.json",
+  "title": "Y benchmark run manifest",
+  "description": "Reproducibility and claim-status metadata for one model test run. Raw request and response evidence remains in separate artifacts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest",
+    "run",
+    "provenance",
+    "model",
+    "runtime",
+    "infrastructure",
+    "workload",
+    "results",
+    "artifacts",
+    "known_issues",
+    "privacy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created_at", "updated_at", "generator"],
+      "properties": {
+        "created_at": { "$ref": "#/$defs/nullableTimestamp" },
+        "updated_at": { "$ref": "#/$defs/nullableTimestamp" },
+        "generator": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "status",
+        "evidence_class",
+        "provisional",
+        "provisional_reasons",
+        "organization",
+        "operator",
+        "timestamps"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+        },
+        "status": {
+          "enum": ["planned", "running", "completed", "failed", "aborted"]
+        },
+        "evidence_class": {
+          "enum": [
+            "unclassified",
+            "source-reported",
+            "community-reproduced",
+            "y-verified",
+            "estimate"
+          ]
+        },
+        "provisional": { "type": "boolean" },
+        "provisional_reasons": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "organization": { "type": ["string", "null"] },
+        "operator": {
+          "description": "Public-safe operator identifier; do not store personal contact details.",
+          "type": ["string", "null"]
+        },
+        "timestamps": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["requested_at", "started_at", "finished_at"],
+          "properties": {
+            "requested_at": { "$ref": "#/$defs/nullableTimestamp" },
+            "started_at": { "$ref": "#/$defs/nullableTimestamp" },
+            "finished_at": { "$ref": "#/$defs/nullableTimestamp" }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recipe_repository", "harness_repository", "parent_run_ids", "source_claims"],
+      "properties": {
+        "recipe_repository": { "$ref": "#/$defs/gitState" },
+        "harness_repository": { "$ref": "#/$defs/gitState" },
+        "parent_run_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "source_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["claim", "source_url", "accessed_at"],
+            "properties": {
+              "claim": { "type": "string" },
+              "source_url": { "$ref": "#/$defs/nullableUri" },
+              "accessed_at": { "$ref": "#/$defs/nullableTimestamp" }
+            }
+          }
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "license", "files", "tokenizer", "quantization"],
+      "properties": {
+        "repository": { "$ref": "#/$defs/repository" },
+        "license": { "$ref": "#/$defs/license" },
+        "files": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/modelFile" }
+        },
+        "tokenizer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["repository", "files", "chat_template_sha256"],
+          "properties": {
+            "repository": { "$ref": "#/$defs/repository" },
+            "files": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/modelFile" }
+            },
+            "chat_template_sha256": { "$ref": "#/$defs/nullableSha256" }
+          }
+        },
+        "quantization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "is_quantized",
+            "format",
+            "method",
+            "nominal_bits_per_weight",
+            "producer_repository",
+            "base_model_revision",
+            "calibration"
+          ],
+          "properties": {
+            "is_quantized": { "type": ["boolean", "null"] },
+            "format": { "type": ["string", "null"] },
+            "method": { "type": ["string", "null"] },
+            "nominal_bits_per_weight": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+            "producer_repository": { "$ref": "#/$defs/repository" },
+            "base_model_revision": { "$ref": "#/$defs/nullableRevision" },
+            "calibration": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["dataset", "revision", "description", "sha256"],
+              "properties": {
+                "dataset": { "type": ["string", "null"] },
+                "revision": { "type": ["string", "null"] },
+                "description": { "type": ["string", "null"] },
+                "sha256": { "$ref": "#/$defs/nullableSha256" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["engine", "container", "build", "launch"],
+      "properties": {
+        "engine": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version", "repository_url", "revision"],
+          "properties": {
+            "name": { "type": ["string", "null"] },
+            "version": { "type": ["string", "null"] },
+            "repository_url": { "$ref": "#/$defs/nullableUri" },
+            "revision": { "$ref": "#/$defs/nullableRevision" }
+          }
+        },
+        "container": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["image", "digest", "registry_url"],
+          "properties": {
+            "image": { "type": ["string", "null"] },
+            "digest": { "$ref": "#/$defs/nullableImageDigest" },
+            "registry_url": { "$ref": "#/$defs/nullableUri" }
+          }
+        },
+        "build": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["base_image_digest", "build_flags", "features", "patches"],
+          "properties": {
+            "base_image_digest": { "$ref": "#/$defs/nullableImageDigest" },
+            "build_flags": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "features": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "patches": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/fileArtifact" }
+            }
+          }
+        },
+        "launch": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["command", "configuration", "environment_allowlist", "redacted_environment_keys"],
+          "properties": {
+            "command": { "$ref": "#/$defs/command" },
+            "configuration": {
+              "description": "Effective non-secret server configuration after defaults are resolved.",
+              "type": "object",
+              "additionalProperties": true
+            },
+            "environment_allowlist": {
+              "description": "Only non-secret environment values needed to reproduce the run.",
+              "type": "object",
+              "additionalProperties": { "type": ["string", "number", "boolean", "null"] }
+            },
+            "redacted_environment_keys": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    },
+    "infrastructure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "hardware", "software", "pricing", "actual_cost"],
+      "properties": {
+        "provider": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "service", "region", "availability", "instance_type", "instance_id"],
+          "properties": {
+            "name": { "type": ["string", "null"] },
+            "service": { "type": ["string", "null"] },
+            "region": { "type": ["string", "null"] },
+            "availability": {
+              "type": ["string", "null"],
+              "enum": ["on-demand", "spot", "community", "reserved", "owned", null]
+            },
+            "instance_type": { "type": ["string", "null"] },
+            "instance_id": {
+              "description": "Use a redacted or short-lived public-safe identifier.",
+              "type": ["string", "null"]
+            }
+          }
+        },
+        "hardware": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["gpu", "cpu", "host_memory_bytes", "storage", "interconnect", "exact_target_hardware"],
+          "properties": {
+            "gpu": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/gpu" }
+            },
+            "cpu": { "type": ["string", "null"] },
+            "host_memory_bytes": { "type": ["integer", "null"], "minimum": 0 },
+            "storage": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["kind", "capacity_bytes", "filesystem"],
+                "properties": {
+                  "kind": { "type": ["string", "null"] },
+                  "capacity_bytes": { "type": ["integer", "null"], "minimum": 0 },
+                  "filesystem": { "type": ["string", "null"] }
+                }
+              }
+            },
+            "interconnect": { "type": ["string", "null"] },
+            "exact_target_hardware": { "type": ["boolean", "null"] }
+          }
+        },
+        "software": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["os", "kernel", "architecture", "nvidia_driver", "cuda_runtime", "firmware"],
+          "properties": {
+            "os": { "type": ["string", "null"] },
+            "kernel": { "type": ["string", "null"] },
+            "architecture": { "type": ["string", "null"] },
+            "nvidia_driver": { "type": ["string", "null"] },
+            "cuda_runtime": { "type": ["string", "null"] },
+            "firmware": { "type": ["string", "null"] }
+          }
+        },
+        "pricing": { "$ref": "#/$defs/pricing" },
+        "actual_cost": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["billed_seconds", "compute_usd", "storage_usd", "network_usd", "other_usd", "total_usd", "calculation"],
+          "properties": {
+            "billed_seconds": { "type": ["number", "null"], "minimum": 0 },
+            "compute_usd": { "type": ["number", "null"], "minimum": 0 },
+            "storage_usd": { "type": ["number", "null"], "minimum": 0 },
+            "network_usd": { "type": ["number", "null"], "minimum": 0 },
+            "other_usd": { "type": ["number", "null"], "minimum": 0 },
+            "total_usd": { "type": ["number", "null"], "minimum": 0 },
+            "calculation": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+    "workload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "suite",
+        "command",
+        "configuration",
+        "inputs",
+        "prompt_class",
+        "context",
+        "concurrency",
+        "repetitions",
+        "measurement_window"
+      ],
+      "properties": {
+        "suite": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version", "repository_url", "revision"],
+          "properties": {
+            "name": { "type": ["string", "null"] },
+            "version": { "type": ["string", "null"] },
+            "repository_url": { "$ref": "#/$defs/nullableUri" },
+            "revision": { "$ref": "#/$defs/nullableRevision" }
+          }
+        },
+        "command": { "$ref": "#/$defs/command" },
+        "configuration": {
+          "description": "Effective client and sampling configuration.",
+          "type": "object",
+          "additionalProperties": true
+        },
+        "inputs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/fileArtifact" }
+        },
+        "prompt_class": { "type": ["string", "null"] },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["configured_tokens", "tested_input_tokens", "max_output_tokens"],
+          "properties": {
+            "configured_tokens": { "type": ["integer", "null"], "minimum": 0 },
+            "tested_input_tokens": { "type": ["integer", "null"], "minimum": 0 },
+            "max_output_tokens": { "type": ["integer", "null"], "minimum": 0 }
+          }
+        },
+        "concurrency": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["clients", "arrival_pattern"],
+          "properties": {
+            "clients": { "type": ["integer", "null"], "minimum": 0 },
+            "arrival_pattern": { "type": ["string", "null"] }
+          }
+        },
+        "repetitions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["cold", "warm", "failed_included"],
+          "properties": {
+            "cold": { "type": ["integer", "null"], "minimum": 0 },
+            "warm": { "type": ["integer", "null"], "minimum": 0 },
+            "failed_included": { "type": ["boolean", "null"] }
+          }
+        },
+        "measurement_window": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["warmup_seconds", "measured_seconds", "notes"],
+          "properties": {
+            "warmup_seconds": { "type": ["number", "null"], "minimum": 0 },
+            "measured_seconds": { "type": ["number", "null"], "minimum": 0 },
+            "notes": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+    "results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_status", "publishable", "labels", "summary", "metrics"],
+      "properties": {
+        "claim_status": {
+          "enum": ["provisional", "accepted", "rejected", "not-for-publication"]
+        },
+        "publishable": { "type": "boolean" },
+        "labels": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "summary": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "metrics": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/metric" }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fileArtifact" }
+    },
+    "known_issues": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/knownIssue" }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contains_secrets", "contains_private_inputs", "redactions", "reviewed_for_publication_at", "reviewed_by"],
+      "properties": {
+        "contains_secrets": { "type": ["boolean", "null"] },
+        "contains_private_inputs": { "type": ["boolean", "null"] },
+        "redactions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "reviewed_for_publication_at": { "$ref": "#/$defs/nullableTimestamp" },
+        "reviewed_by": { "type": ["string", "null"] }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "nullableTimestamp": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "nullableUri": {
+      "type": ["string", "null"],
+      "format": "uri"
+    },
+    "nullableRevision": {
+      "description": "Immutable full commit/revision identifier when resolved; null while a run is only planned.",
+      "type": ["string", "null"],
+      "pattern": "^[0-9A-Fa-f]{40,64}$"
+    },
+    "nullableSha256": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nullableImageDigest": {
+      "type": ["string", "null"],
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "gitState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "revision", "dirty"],
+      "properties": {
+        "url": { "$ref": "#/$defs/nullableUri" },
+        "revision": { "$ref": "#/$defs/nullableRevision" },
+        "dirty": { "type": ["boolean", "null"] }
+      }
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "url", "requested_revision", "resolved_revision"],
+      "properties": {
+        "id": { "type": ["string", "null"] },
+        "url": { "$ref": "#/$defs/nullableUri" },
+        "requested_revision": { "type": ["string", "null"] },
+        "resolved_revision": { "$ref": "#/$defs/nullableRevision" }
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spdx_or_name", "url", "commercial_use_reviewed", "territory", "authorization_reference"],
+      "properties": {
+        "spdx_or_name": { "type": ["string", "null"] },
+        "url": { "$ref": "#/$defs/nullableUri" },
+        "commercial_use_reviewed": { "type": ["boolean", "null"] },
+        "territory": { "type": ["string", "null"] },
+        "authorization_reference": {
+          "description": "Public-safe internal reference only; never embed a contract or credential.",
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "modelFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "path", "source_url", "size_bytes", "sha256"],
+      "properties": {
+        "role": {
+          "enum": ["weights", "tokenizer", "config", "adapter", "calibration", "other"]
+        },
+        "path": { "type": "string", "minLength": 1 },
+        "source_url": { "$ref": "#/$defs/nullableUri" },
+        "size_bytes": { "type": ["integer", "null"], "minimum": 0 },
+        "sha256": { "$ref": "#/$defs/nullableSha256" }
+      }
+    },
+    "fileArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "path", "sha256", "size_bytes", "created_at", "publish"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/nullableSha256" },
+        "size_bytes": { "type": ["integer", "null"], "minimum": 0 },
+        "created_at": { "$ref": "#/$defs/nullableTimestamp" },
+        "publish": { "type": ["boolean", "null"] }
+      }
+    },
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv", "display"],
+      "properties": {
+        "argv": {
+          "description": "Canonical argument vector. This is the reproducible source; display is informational only.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "display": { "type": ["string", "null"] }
+      }
+    },
+    "gpu": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "count", "memory_bytes_each", "uuid", "compute_capability", "power_limit_watts"],
+      "properties": {
+        "name": { "type": ["string", "null"] },
+        "count": { "type": ["integer", "null"], "minimum": 1 },
+        "memory_bytes_each": { "type": ["integer", "null"], "minimum": 0 },
+        "uuid": {
+          "description": "Optional public-safe GPU UUID or redacted value.",
+          "type": ["string", "null"]
+        },
+        "compute_capability": { "type": ["string", "null"] },
+        "power_limit_watts": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currency",
+        "gpu_hour_rate",
+        "cpu_hour_rate",
+        "host_memory_gib_hour_rate",
+        "storage_gib_month_rate",
+        "egress_gib_rate",
+        "source_url",
+        "checked_at",
+        "notes"
+      ],
+      "properties": {
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "gpu_hour_rate": { "type": ["number", "null"], "minimum": 0 },
+        "cpu_hour_rate": { "type": ["number", "null"], "minimum": 0 },
+        "host_memory_gib_hour_rate": { "type": ["number", "null"], "minimum": 0 },
+        "storage_gib_month_rate": { "type": ["number", "null"], "minimum": 0 },
+        "egress_gib_rate": { "type": ["number", "null"], "minimum": 0 },
+        "source_url": { "$ref": "#/$defs/nullableUri" },
+        "checked_at": { "$ref": "#/$defs/nullableTimestamp" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "definition",
+        "value",
+        "unit",
+        "aggregation",
+        "sample_count",
+        "source",
+        "provisional",
+        "evidence_path",
+        "notes"
+      ],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "definition": { "type": ["string", "null"] },
+        "value": { "type": ["number", "integer", "string", "boolean", "null"] },
+        "unit": { "type": ["string", "null"] },
+        "aggregation": { "type": ["string", "null"] },
+        "sample_count": { "type": ["integer", "null"], "minimum": 0 },
+        "source": {
+          "type": ["string", "null"],
+          "enum": ["client", "server", "provider", "derived", "manual", null]
+        },
+        "provisional": { "type": "boolean" },
+        "evidence_path": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "knownIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "severity", "status", "summary", "impact", "workaround", "evidence_path"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]+$" },
+        "severity": { "enum": ["info", "low", "medium", "high", "critical"] },
+        "status": { "enum": ["open", "mitigated", "resolved", "accepted"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "impact": { "type": ["string", "null"] },
+        "workaround": { "type": ["string", "null"] },
+        "evidence_path": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

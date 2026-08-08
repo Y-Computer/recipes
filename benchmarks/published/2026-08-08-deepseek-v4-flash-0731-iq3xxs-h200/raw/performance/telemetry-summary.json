@@ -1,0 +1,71 @@
+{
+  "llama_bench_target_only": {
+    "samples": 41,
+    "memory_used_mib": {
+      "min": 1.0,
+      "max": 100014.0,
+      "mean": 85238.51219512195
+    },
+    "gpu_utilization_percent": {
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 57.292682926829265
+    },
+    "power_draw_w": {
+      "min": 72.32,
+      "max": 465.49,
+      "mean": 270.6168292682927
+    },
+    "temperature_c": {
+      "min": 29.0,
+      "max": 47.0,
+      "mean": 37.53658536585366
+    }
+  },
+  "server_dspark": {
+    "samples": 1005,
+    "memory_used_mib": {
+      "min": 1.0,
+      "max": 111182.0,
+      "mean": 110290.99800995024
+    },
+    "gpu_utilization_percent": {
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 17.569154228855723
+    },
+    "power_draw_w": {
+      "min": 72.6,
+      "max": 464.2,
+      "mean": 161.29650746268655
+    },
+    "temperature_c": {
+      "min": 29.0,
+      "max": 48.0,
+      "mean": 33.69253731343284
+    }
+  },
+  "server_target_only": {
+    "samples": 214,
+    "memory_used_mib": {
+      "min": 1.0,
+      "max": 100334.0,
+      "mean": 57355.64953271028
+    },
+    "gpu_utilization_percent": {
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 12.869158878504672
+    },
+    "power_draw_w": {
+      "min": 114.19,
+      "max": 301.14,
+      "mean": 136.14453271028037
+    },
+    "temperature_c": {
+      "min": 32.0,
+      "max": 40.0,
+      "mean": 33.60280373831776
+    }
+  }
+}

@@ -1,2 +1,5 @@
 .DS_Store
 *.log
+
+# Reviewed benchmark logs are evidence, not disposable runtime output.
+!benchmarks/published/**/*.log

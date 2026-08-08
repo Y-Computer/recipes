@@ -11,6 +11,7 @@ No machine recommendation until the workload runs.
 - [See the visual Proof Lab](https://y.computer/recipes/)
 - [Send Y a model or demo to prove](https://y.computer/contact/?subject=Prove%20this%20model)
 - [Read the cloud and quantization plan](LAB.md)
+- [Track the latest downloadable model queue](benchmarks/LATEST_MODEL_QUEUE.md)
 - [Browse upstream demos queued for reproduction](DEMOS.md)
 
 ## The path from post to product
@@ -33,6 +34,26 @@ one-command Y OS install
 
 Cloud proves that the software works. Only the target hardware proves the
 product.
+
+## First live Y run
+
+We ran the July 31 DeepSeek V4 Flash 0731 release online on one NVIDIA H200,
+using the 104.20 GB Unsloth `UD-IQ3_XXS` quant and a Q8 DSpark draft.
+
+| Result | Provisional Y measurement |
+|---|---:|
+| Target-only generation | 61.42 tok/s |
+| DSpark generation | 90.95 tok/s |
+| DSpark speed-up | 1.48x |
+| Adaptive integration smoke | 6/6 |
+| Peak target + draft GPU memory | 111,182 MiB |
+
+The test cost about USD 2.59 in estimated H200 compute. Raw requests,
+responses, model hashes, runtime identity and limitations are public. This is a
+cloud software-path result, not yet proof for a DGX Spark or another sellable
+Y Computer.
+
+[Inspect the complete DeepSeek evidence](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-iq3xxs-h200/README.md)
 
 ## Proof file 001
 

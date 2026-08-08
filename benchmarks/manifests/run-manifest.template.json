@@ -1,0 +1,293 @@
+{
+  "schema_version": "1.0.0",
+  "manifest": {
+    "created_at": null,
+    "updated_at": null,
+    "generator": "manual-template",
+    "notes": "Copy this file at run start, replace pending values, and keep the claim provisional until publication review."
+  },
+  "run": {
+    "id": "deepseek-v4-flash-0731-replace-with-utc-run-id",
+    "status": "planned",
+    "evidence_class": "unclassified",
+    "provisional": true,
+    "provisional_reasons": [
+      "Model files and immutable revisions have not been recorded.",
+      "Runtime image and engine revisions have not been recorded.",
+      "The run has not completed or passed publication review."
+    ],
+    "organization": "Y Computer",
+    "operator": null,
+    "timestamps": {
+      "requested_at": null,
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  "provenance": {
+    "recipe_repository": {
+      "url": "https://github.com/Y-Computer/recipes",
+      "revision": null,
+      "dirty": null
+    },
+    "harness_repository": {
+      "url": "https://github.com/Y-Computer/recipes",
+      "revision": null,
+      "dirty": null
+    },
+    "parent_run_ids": [],
+    "source_claims": [
+      {
+        "claim": "Model identity and upstream configuration must be checked against the pinned model card before the run.",
+        "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "accessed_at": null
+      }
+    ]
+  },
+  "model": {
+    "repository": {
+      "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "requested_revision": "main",
+      "resolved_revision": null
+    },
+    "license": {
+      "spdx_or_name": null,
+      "url": null,
+      "commercial_use_reviewed": null,
+      "territory": null,
+      "authorization_reference": null
+    },
+    "files": [],
+    "tokenizer": {
+      "repository": {
+        "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "requested_revision": "main",
+        "resolved_revision": null
+      },
+      "files": [],
+      "chat_template_sha256": null
+    },
+    "quantization": {
+      "is_quantized": null,
+      "format": null,
+      "method": null,
+      "nominal_bits_per_weight": null,
+      "producer_repository": {
+        "id": null,
+        "url": null,
+        "requested_revision": null,
+        "resolved_revision": null
+      },
+      "base_model_revision": null,
+      "calibration": {
+        "dataset": null,
+        "revision": null,
+        "description": null,
+        "sha256": null
+      }
+    }
+  },
+  "runtime": {
+    "engine": {
+      "name": "vllm",
+      "version": null,
+      "repository_url": "https://github.com/vllm-project/vllm",
+      "revision": null
+    },
+    "container": {
+      "image": null,
+      "digest": null,
+      "registry_url": null
+    },
+    "build": {
+      "base_image_digest": null,
+      "build_flags": [],
+      "features": [],
+      "patches": []
+    },
+    "launch": {
+      "command": {
+        "argv": [],
+        "display": null
+      },
+      "configuration": {},
+      "environment_allowlist": {},
+      "redacted_environment_keys": [
+        "HF_TOKEN",
+        "OPENAI_API_KEY"
+      ]
+    }
+  },
+  "infrastructure": {
+    "provider": {
+      "name": "runpod",
+      "service": "Pods",
+      "region": null,
+      "availability": null,
+      "instance_type": null,
+      "instance_id": null
+    },
+    "hardware": {
+      "gpu": [],
+      "cpu": null,
+      "host_memory_bytes": null,
+      "storage": [],
+      "interconnect": null,
+      "exact_target_hardware": false
+    },
+    "software": {
+      "os": null,
+      "kernel": null,
+      "architecture": null,
+      "nvidia_driver": null,
+      "cuda_runtime": null,
+      "firmware": null
+    },
+    "pricing": {
+      "currency": "USD",
+      "gpu_hour_rate": null,
+      "cpu_hour_rate": null,
+      "host_memory_gib_hour_rate": null,
+      "storage_gib_month_rate": null,
+      "egress_gib_rate": null,
+      "source_url": "https://www.runpod.io/pricing",
+      "checked_at": null,
+      "notes": "Record the actual offer and market type shown when the pod starts; current list prices are not evidence of the billed rate."
+    },
+    "actual_cost": {
+      "billed_seconds": null,
+      "compute_usd": null,
+      "storage_usd": null,
+      "network_usd": null,
+      "other_usd": null,
+      "total_usd": null,
+      "calculation": null
+    }
+  },
+  "workload": {
+    "suite": {
+      "name": "y-openai-compatible-smoke",
+      "version": "2026-08-08.1",
+      "repository_url": "https://github.com/Y-Computer/recipes",
+      "revision": null
+    },
+    "command": {
+      "argv": [
+        "python3",
+        "scripts/run_openai_smoke.py",
+        "--base-url",
+        "http://127.0.0.1:8000/v1",
+        "--model",
+        "deepseek-ai/DeepSeek-V4-Flash-0731",
+        "--output-dir",
+        "benchmarks/results",
+        "--temperature",
+        "1",
+        "--top-p",
+        "0.95",
+        "--reasoning-mode",
+        "auto",
+        "--allow-code-execution",
+        "--metadata",
+        "provider=runpod",
+        "--metadata",
+        "runtime=vllm"
+      ],
+      "display": "python3 scripts/run_openai_smoke.py --base-url http://127.0.0.1:8000/v1 --model deepseek-ai/DeepSeek-V4-Flash-0731 --output-dir benchmarks/results --temperature 1 --top-p 0.95 --reasoning-mode auto --allow-code-execution --metadata provider=runpod --metadata runtime=vllm"
+    },
+    "configuration": {
+      "temperature": 1,
+      "top_p": 0.95,
+      "seed": null,
+      "reasoning_mode": "auto",
+      "long_context_chars": 65536,
+      "code_execution_isolation": "Disposable credential-free container or VM required"
+    },
+    "inputs": [],
+    "prompt_class": "Fixed six-case integration smoke suite; not a standardized quality or performance benchmark",
+    "context": {
+      "configured_tokens": null,
+      "tested_input_tokens": null,
+      "max_output_tokens": null
+    },
+    "concurrency": {
+      "clients": 1,
+      "arrival_pattern": "sequential"
+    },
+    "repetitions": {
+      "cold": 0,
+      "warm": 1,
+      "failed_included": true
+    },
+    "measurement_window": {
+      "warmup_seconds": null,
+      "measured_seconds": null,
+      "notes": "The smoke suite captures end-to-end request latency but is not a throughput, TTFT, TPOT, power, thermal, or sustained-load run."
+    }
+  },
+  "results": {
+    "claim_status": "provisional",
+    "publishable": false,
+    "labels": [
+      "PROVISIONAL",
+      "SMOKE-SUITE",
+      "NOT-A-PERFORMANCE-BENCHMARK",
+      "NOT-Y-VERIFIED"
+    ],
+    "summary": {
+      "passed": null,
+      "failed": null,
+      "not_run": null
+    },
+    "metrics": []
+  },
+  "artifacts": [],
+  "known_issues": [
+    {
+      "id": "model-artifact-identity-pending",
+      "severity": "high",
+      "status": "open",
+      "summary": "The resolved model revision, file list, sizes, and SHA-256 values are not recorded yet.",
+      "impact": "The exact checkpoint cannot be independently reconstructed.",
+      "workaround": "Resolve the repository commit and hash every consumed model and tokenizer file before accepting results.",
+      "evidence_path": null
+    },
+    {
+      "id": "runtime-identity-pending",
+      "severity": "high",
+      "status": "open",
+      "summary": "The runtime commit, container digest, build flags, and launch configuration are not recorded yet.",
+      "impact": "Runtime-specific behavior cannot be separated from model behavior.",
+      "workaround": "Capture the running image digest, engine revision, effective arguments, and non-secret environment before requests begin.",
+      "evidence_path": null
+    },
+    {
+      "id": "infrastructure-and-cost-pending",
+      "severity": "medium",
+      "status": "open",
+      "summary": "GPU identity, software stack, advertised price, and actual billed cost are not recorded yet.",
+      "impact": "Fit, performance, and cheapest-run claims are unsupported.",
+      "workaround": "Capture provider and nvidia-smi metadata at start and the provider invoice or billing duration at finish.",
+      "evidence_path": null
+    },
+    {
+      "id": "smoke-suite-interpretation-boundary",
+      "severity": "info",
+      "status": "accepted",
+      "summary": "This run exercises six integration cases and does not measure standardized model quality or hardware performance.",
+      "impact": "A pass cannot support comparative quality, context-length, throughput, power, thermal, or exact-device claims.",
+      "workaround": "Run the standardized and exact-device evidence required by BENCHMARKS.md after the smoke gate passes.",
+      "evidence_path": "benchmarks/README.md"
+    }
+  ],
+  "privacy": {
+    "contains_secrets": null,
+    "contains_private_inputs": null,
+    "redactions": [],
+    "reviewed_for_publication_at": null,
+    "reviewed_by": null
+  },
+  "extensions": {}
+}

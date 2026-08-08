@@ -1,0 +1,647 @@
+{
+  "schema_version": "1.0.0",
+  "manifest": {
+    "created_at": "2026-08-08T11:14:00Z",
+    "updated_at": "2026-08-08T11:14:00Z",
+    "generator": "Y Proof Lab manual evidence review",
+    "notes": "One cloud proof bundle containing performance, integration-smoke, and limited IFEval evidence."
+  },
+  "run": {
+    "id": "deepseek-v4-flash-0731-iq3xxs-h200-20260808",
+    "status": "completed",
+    "evidence_class": "unclassified",
+    "provisional": true,
+    "provisional_reasons": [
+      "The run does not contain every metric and immutable artifact required by the Y-verified policy.",
+      "IFEval was limited to 20 of 541 prompts.",
+      "This was a cloud H200, not an exact sellable Y Computer target."
+    ],
+    "organization": "Y Computer",
+    "operator": "Y Proof Lab",
+    "timestamps": {
+      "requested_at": "2026-08-08T10:35:21Z",
+      "started_at": "2026-08-08T10:35:21Z",
+      "finished_at": "2026-08-08T11:07:44Z"
+    }
+  },
+  "provenance": {
+    "recipe_repository": {
+      "url": "https://github.com/Y-Computer/recipes",
+      "revision": "b40f3d5fa3870f56b177f3b4df31be236f54dcb4",
+      "dirty": true
+    },
+    "harness_repository": {
+      "url": "https://github.com/Y-Computer/recipes",
+      "revision": null,
+      "dirty": true
+    },
+    "parent_run_ids": [],
+    "source_claims": [
+      {
+        "claim": "DeepSeek V4 Flash 0731 is an MIT-licensed 284B-total, 13B-active model released on 2026-07-31.",
+        "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "accessed_at": "2026-08-08T09:30:00Z"
+      },
+      {
+        "claim": "The consumed UD-IQ3_XXS and Q8 DSpark GGUF artifacts were distributed by Unsloth.",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF",
+        "accessed_at": "2026-08-08T09:30:00Z"
+      }
+    ]
+  },
+  "model": {
+    "repository": {
+      "id": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+      "url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF",
+      "requested_revision": "main",
+      "resolved_revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768"
+    },
+    "license": {
+      "spdx_or_name": "MIT",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/blob/main/LICENSE",
+      "commercial_use_reviewed": true,
+      "territory": "United States",
+      "authorization_reference": null
+    },
+    "files": [
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/main/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf",
+        "size_bytes": 5257696,
+        "sha256": "dec1cee704800267d9d836d5a61aefc33705be939bbb3058fa9006d98191576d"
+      },
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00002-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/main/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00002-of-00004.gguf",
+        "size_bytes": 49910532416,
+        "sha256": "3064d3c4c1d6363e9f9ad88e90a3e2c5fb2d6f7ae16ca72135c3ce6a5c984da5"
+      },
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00003-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/main/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00003-of-00004.gguf",
+        "size_bytes": 49257859456,
+        "sha256": "2e9b2732eca7da8324f731653624a4f5c9846258926fd9f468cc703afb51a019"
+      },
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00004-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/main/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00004-of-00004.gguf",
+        "size_bytes": 5034198464,
+        "sha256": "4ca79d8e5107dd1b9bb57b176a7c09948837425dee49f0f1dfd6547a3769fea7"
+      },
+      {
+        "role": "weights",
+        "path": "dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/main/dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf",
+        "size_bytes": 10896057440,
+        "sha256": "2c7ac54b0b64a99df1f139a9f1371a00198265e1d6a614b77597d20a655a4249"
+      }
+    ],
+    "tokenizer": {
+      "repository": {
+        "id": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+        "url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF",
+        "requested_revision": "main",
+        "resolved_revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768"
+      },
+      "files": [],
+      "chat_template_sha256": null
+    },
+    "quantization": {
+      "is_quantized": true,
+      "format": "GGUF",
+      "method": "Unsloth Dynamic UD-IQ3_XXS",
+      "nominal_bits_per_weight": 3.0625,
+      "producer_repository": {
+        "id": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+        "url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF",
+        "requested_revision": "main",
+        "resolved_revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768"
+      },
+      "base_model_revision": null,
+      "calibration": {
+        "dataset": null,
+        "revision": null,
+        "description": null,
+        "sha256": null
+      }
+    }
+  },
+  "runtime": {
+    "engine": {
+      "name": "llama.cpp",
+      "version": "b10327",
+      "repository_url": "https://github.com/ggml-org/llama.cpp",
+      "revision": "69bf6437914596fbbc4caf09a7ac16f2acdd1a94"
+    },
+    "container": {
+      "image": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+      "digest": null,
+      "registry_url": "https://hub.docker.com/r/runpod/pytorch"
+    },
+    "build": {
+      "base_image_digest": null,
+      "build_flags": [
+        "CMAKE_BUILD_TYPE=Release",
+        "GGML_CUDA=ON",
+        "GGML_NATIVE=ON"
+      ],
+      "features": [
+        "CUDA",
+        "flash-attention",
+        "DSpark speculative decoding"
+      ],
+      "patches": []
+    },
+    "launch": {
+      "command": {
+        "argv": [
+          "llama-server",
+          "-m",
+          "DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf",
+          "-md",
+          "dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf",
+          "-ngl",
+          "999",
+          "-ngld",
+          "999",
+          "-c",
+          "32768",
+          "-np",
+          "1",
+          "-fa",
+          "on",
+          "--spec-type",
+          "draft-dspark",
+          "--spec-draft-n-max",
+          "3",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "8080",
+          "--metrics",
+          "--reasoning-format",
+          "deepseek",
+          "--reasoning",
+          "on"
+        ],
+        "display": "llama-server -m <IQ3_XXS-shard-1> -md <DSpark-Q8> -ngl 999 -ngld 999 -c 32768 -np 1 -fa on --spec-type draft-dspark --spec-draft-n-max 3 --host 127.0.0.1 --port 8080 --metrics --reasoning-format deepseek --reasoning on"
+      },
+      "configuration": {
+        "context_tokens": 32768,
+        "parallel_slots": 1,
+        "full_gpu_offload": true,
+        "flash_attention": true,
+        "draft_max_tokens": 3,
+        "listen_scope": "loopback"
+      },
+      "environment_allowlist": {
+        "CUDA_VISIBLE_DEVICES": "0"
+      },
+      "redacted_environment_keys": [
+        "HF_TOKEN",
+        "OPENAI_API_KEY",
+        "RUNPOD_API_KEY"
+      ]
+    }
+  },
+  "infrastructure": {
+    "provider": {
+      "name": "Runpod",
+      "service": "Secure Cloud Pod",
+      "region": "US-NC-1",
+      "availability": "on-demand",
+      "instance_type": "1x NVIDIA H200 SXM",
+      "instance_id": null
+    },
+    "hardware": {
+      "gpu": [
+        {
+          "name": "NVIDIA H200",
+          "count": 1,
+          "memory_bytes_each": 150754820096,
+          "uuid": "[REDACTED]",
+          "compute_capability": "9.0",
+          "power_limit_watts": 700
+        }
+      ],
+      "cpu": "24 allocated vCPU; host reports Intel Xeon Platinum 8568Y+",
+      "host_memory_bytes": 251000000000,
+      "storage": [
+        {
+          "kind": "network workspace volume",
+          "capacity_bytes": 140000000000,
+          "filesystem": "Runpod mfs"
+        }
+      ],
+      "interconnect": null,
+      "exact_target_hardware": false
+    },
+    "software": {
+      "os": "Ubuntu 24.04.3 LTS",
+      "kernel": "6.8.0-83-generic",
+      "architecture": "x86_64",
+      "nvidia_driver": "570.124.06",
+      "cuda_runtime": "CUDA toolkit 12.8.93; PyTorch 2.8.0+cu128",
+      "firmware": null
+    },
+    "pricing": {
+      "currency": "USD",
+      "gpu_hour_rate": 4.59,
+      "cpu_hour_rate": null,
+      "host_memory_gib_hour_rate": null,
+      "storage_gib_month_rate": null,
+      "egress_gib_rate": null,
+      "source_url": "https://www.runpod.io/pricing",
+      "checked_at": "2026-08-08T10:35:21Z",
+      "notes": "The live Runpod offer returned USD 4.59/hour. Provider billing history had not settled when evidence was published."
+    },
+    "actual_cost": {
+      "billed_seconds": null,
+      "compute_usd": null,
+      "storage_usd": null,
+      "network_usd": null,
+      "other_usd": null,
+      "total_usd": null,
+      "calculation": "A pre-deletion uptime reading of 2,033 seconds at USD 4.59/hour yields a provisional USD 2.5921 compute estimate, not an invoice value."
+    }
+  },
+  "workload": {
+    "suite": {
+      "name": "Y DeepSeek V4 Flash cloud proof bundle",
+      "version": "2026-08-08.1",
+      "repository_url": "https://github.com/Y-Computer/recipes",
+      "revision": null
+    },
+    "command": {
+      "argv": [
+        "python3",
+        "scripts/run_openai_smoke.py",
+        "--base-url",
+        "http://127.0.0.1:8080/v1",
+        "--model",
+        "deepseek-v4-flash-0731-iq3xxs",
+        "--temperature",
+        "1",
+        "--top-p",
+        "0.95",
+        "--reasoning-mode",
+        "adaptive",
+        "--allow-code-execution",
+        "--long-context-chars",
+        "65536"
+      ],
+      "display": "python3 scripts/run_openai_smoke.py --base-url http://127.0.0.1:8080/v1 --model deepseek-v4-flash-0731-iq3xxs --temperature 1 --top-p 0.95 --reasoning-mode adaptive --allow-code-execution --long-context-chars 65536"
+    },
+    "configuration": {
+      "server_context_tokens": 32768,
+      "smoke_suite_version": "2026-08-08.2",
+      "fixed_generation": {
+        "temperature": 0,
+        "seed": 42,
+        "ignore_eos": true,
+        "thinking": false,
+        "generated_tokens": 256
+      },
+      "ifeval": {
+        "lm_eval_version": "0.4.12",
+        "task_version": "4.0",
+        "effective_samples": 20,
+        "original_samples": 541,
+        "temperature": 0,
+        "thinking": false,
+        "max_generation_tokens": 1280
+      }
+    },
+    "inputs": [],
+    "prompt_class": "Synthetic integration prompts, one deterministic local-AI fixed-generation prompt, and the first 20 IFEval v4 prompts",
+    "context": {
+      "configured_tokens": 32768,
+      "tested_input_tokens": 18072,
+      "max_output_tokens": 1280
+    },
+    "concurrency": {
+      "clients": 1,
+      "arrival_pattern": "sequential"
+    },
+    "repetitions": {
+      "cold": 1,
+      "warm": 5,
+      "failed_included": true
+    },
+    "measurement_window": {
+      "warmup_seconds": null,
+      "measured_seconds": null,
+      "notes": "Fixed generation used one warm-up plus five measured requests per server; llama-bench used three repetitions; IFEval used one pass over 20 prompts."
+    }
+  },
+  "results": {
+    "claim_status": "provisional",
+    "publishable": false,
+    "labels": [
+      "PROVISIONAL",
+      "Y-RUN",
+      "CLOUD-H200",
+      "NOT-EXACT-PRODUCT-HARDWARE",
+      "PARTIAL-IFEVAL",
+      "NOT-FULL-Y-VERIFIED"
+    ],
+    "summary": {
+      "adaptive_smoke_passed": 6,
+      "adaptive_smoke_total": 6,
+      "fixed_generation_speedup": 1.4808131420622386,
+      "ifeval_effective_prompts": 20
+    },
+    "metrics": [
+      {
+        "name": "target_only_generation_throughput",
+        "definition": "llama.cpp server-reported generation throughput for fixed 256-token requests after one warm-up",
+        "value": 61.4177460803395,
+        "unit": "tokens/second",
+        "aggregation": "mean",
+        "sample_count": 5,
+        "source": "server",
+        "provisional": true,
+        "evidence_path": "raw/performance/fixed-generation-target-only.jsonl",
+        "notes": "One sequential client; prompt cache warm; temperature 0; seed 42; EOS ignored."
+      },
+      {
+        "name": "dspark_generation_throughput",
+        "definition": "llama.cpp server-reported generation throughput with Q8 DSpark draft and n=3",
+        "value": 90.94820555160827,
+        "unit": "tokens/second",
+        "aggregation": "mean",
+        "sample_count": 5,
+        "source": "server",
+        "provisional": true,
+        "evidence_path": "raw/performance/fixed-generation-dspark.jsonl",
+        "notes": "Same fixed request and output length as target-only."
+      },
+      {
+        "name": "dspark_generation_speedup",
+        "definition": "Mean DSpark generation tokens/second divided by mean target-only generation tokens/second",
+        "value": 1.4808131420622386,
+        "unit": "ratio",
+        "aggregation": "ratio of means",
+        "sample_count": 5,
+        "source": "derived",
+        "provisional": true,
+        "evidence_path": "raw/performance/fixed-generation-summary.json",
+        "notes": "Prompt-class-specific; not a universal model speed-up."
+      },
+      {
+        "name": "dspark_end_to_end_latency_reduction",
+        "definition": "One minus mean DSpark wall latency divided by mean target-only wall latency",
+        "value": 0.3223815402731621,
+        "unit": "fraction",
+        "aggregation": "ratio of means",
+        "sample_count": 5,
+        "source": "derived",
+        "provisional": true,
+        "evidence_path": "raw/performance/fixed-generation-summary.json",
+        "notes": "4,216.1924 ms target-only versus 2,856.9698 ms DSpark."
+      },
+      {
+        "name": "target_only_peak_gpu_memory",
+        "definition": "Maximum one-second nvidia-smi memory-used sample during the target-only server window",
+        "value": 100334,
+        "unit": "MiB",
+        "aggregation": "maximum",
+        "sample_count": 214,
+        "source": "provider",
+        "provisional": true,
+        "evidence_path": "raw/performance/telemetry-summary.json",
+        "notes": null
+      },
+      {
+        "name": "dspark_peak_gpu_memory",
+        "definition": "Maximum one-second nvidia-smi memory-used sample during the DSpark server window",
+        "value": 111182,
+        "unit": "MiB",
+        "aggregation": "maximum",
+        "sample_count": 1005,
+        "source": "provider",
+        "provisional": true,
+        "evidence_path": "raw/performance/telemetry-summary.json",
+        "notes": null
+      },
+      {
+        "name": "adaptive_smoke_pass_rate",
+        "definition": "Pass fraction for the fixed six-case Y integration smoke suite",
+        "value": 1,
+        "unit": "fraction",
+        "aggregation": "mean",
+        "sample_count": 6,
+        "source": "client",
+        "provisional": true,
+        "evidence_path": "raw/smoke/reasoning-adaptive.jsonl",
+        "notes": "Integration gate only; not a standardized model-quality score."
+      },
+      {
+        "name": "ifeval_prompt_level_strict_accuracy",
+        "definition": "IFEval v4 prompt-level strict accuracy",
+        "value": 0.9,
+        "unit": "fraction",
+        "aggregation": "mean",
+        "sample_count": 20,
+        "source": "client",
+        "provisional": true,
+        "evidence_path": "raw/ifeval/results.json",
+        "notes": "Limited to the first 20 of 541 prompts; not leaderboard-comparable."
+      },
+      {
+        "name": "ifeval_instruction_level_strict_accuracy",
+        "definition": "IFEval v4 instruction-level strict accuracy",
+        "value": 0.9333333333333333,
+        "unit": "fraction",
+        "aggregation": "mean over instructions",
+        "sample_count": 30,
+        "source": "client",
+        "provisional": true,
+        "evidence_path": "raw/ifeval/results.json",
+        "notes": "Limited to instructions within the first 20 prompts; not leaderboard-comparable."
+      },
+      {
+        "name": "estimated_compute_cost",
+        "definition": "Pre-deletion uptime multiplied by the live advertised hourly rate",
+        "value": 2.5921,
+        "unit": "USD",
+        "aggregation": "derived estimate",
+        "sample_count": 1,
+        "source": "derived",
+        "provisional": true,
+        "evidence_path": "README.md",
+        "notes": "Provider billing history was not yet settled."
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "type": "llama-bench JSONL",
+      "path": "raw/performance/bench.jsonl",
+      "sha256": "5035c273d1894768d8e32396a8870a98245593e0a50e22537c9424b002668e6b",
+      "size_bytes": 3298,
+      "created_at": "2026-08-08T10:42:50Z",
+      "publish": true
+    },
+    {
+      "type": "target-only fixed-generation JSONL",
+      "path": "raw/performance/fixed-generation-target-only.jsonl",
+      "sha256": "6edc1af8cd6e0e4673fac12a02029eae77578b5cfc461bd30a831279370bf99c",
+      "size_bytes": 13881,
+      "created_at": "2026-08-08T11:06:49Z",
+      "publish": true
+    },
+    {
+      "type": "DSpark fixed-generation JSONL",
+      "path": "raw/performance/fixed-generation-dspark.jsonl",
+      "sha256": "dab881f78f534f69b1ca1080197d946b0ffd41f920e00d61eb79d3cdd4a3c73f",
+      "size_bytes": 14304,
+      "created_at": "2026-08-08T11:04:00Z",
+      "publish": true
+    },
+    {
+      "type": "derived fixed-generation summary",
+      "path": "raw/performance/fixed-generation-summary.json",
+      "sha256": "4c938b2b046fed683cd24d3e4c467bfba356ea46f124ca81f8f738b5bf952a4a",
+      "size_bytes": 1273,
+      "created_at": "2026-08-08T11:07:00Z",
+      "publish": true
+    },
+    {
+      "type": "telemetry summary",
+      "path": "raw/performance/telemetry-summary.json",
+      "sha256": "76ea9b932e3a46e9353e7623b815e5c77dba1aa42515b8ad750013093ff475df",
+      "size_bytes": 1409,
+      "created_at": "2026-08-08T11:08:00Z",
+      "publish": true
+    },
+    {
+      "type": "adaptive smoke JSONL",
+      "path": "raw/smoke/reasoning-adaptive.jsonl",
+      "sha256": "a5a6cec4bff48e8cdcdee664bd0815efad7889a9302aae8546af704cddf9b0bb",
+      "size_bytes": 90373,
+      "created_at": "2026-08-08T11:02:38Z",
+      "publish": true
+    },
+    {
+      "type": "reasoning-on smoke JSONL",
+      "path": "raw/smoke/reasoning-on.jsonl",
+      "sha256": "53f3ea983202d865872a5a376cf32e6dcd2b260c7a6c955f218ebc614078d067",
+      "size_bytes": 93211,
+      "created_at": "2026-08-08T10:51:48Z",
+      "publish": true
+    },
+    {
+      "type": "reasoning-off smoke JSONL",
+      "path": "raw/smoke/reasoning-off.jsonl",
+      "sha256": "644d9322612e70da0253d49109de918963bfa2671f399a6da7f5f425628c9baa",
+      "size_bytes": 90361,
+      "created_at": "2026-08-08T10:53:45Z",
+      "publish": true
+    },
+    {
+      "type": "IFEval aggregate JSON",
+      "path": "raw/ifeval/results.json",
+      "sha256": "6c61a21bb31f674f7ce1ebbc20348aba97e07d0ead3872017446ad3d67dd69ca",
+      "size_bytes": 10789,
+      "created_at": "2026-08-08T11:02:26Z",
+      "publish": true
+    },
+    {
+      "type": "IFEval samples JSONL",
+      "path": "raw/ifeval/samples.jsonl",
+      "sha256": "f6f09523bfd37e924d17403ba8eed10f9f23f625572643ca52670cd30a5d53c2",
+      "size_bytes": 132037,
+      "created_at": "2026-08-08T11:02:26Z",
+      "publish": true
+    },
+    {
+      "type": "model checksum list",
+      "path": "environment/model-sha256.txt",
+      "sha256": "5261c173ab3108c4e7131de5236643470b114d6436c9a323f176311c70121ceb",
+      "size_bytes": 630,
+      "created_at": "2026-08-08T11:08:00Z",
+      "publish": true
+    }
+  ],
+  "known_issues": [
+    {
+      "id": "not-full-y-verification",
+      "severity": "high",
+      "status": "open",
+      "summary": "The run lacks TTFT, streaming TPOT, queue time, sustained concurrency, comparable power windows, throttling data, firmware and interconnect identity.",
+      "impact": "The measurements cannot be promoted as a complete Y-verified product benchmark.",
+      "workaround": "Run the full acceptance protocol on an immutable image and exact product hardware.",
+      "evidence_path": "README.md"
+    },
+    {
+      "id": "container-digest-missing",
+      "severity": "high",
+      "status": "open",
+      "summary": "The Runpod container tag was captured but its immutable image digest was not.",
+      "impact": "The base runtime cannot be reconstructed byte-for-byte.",
+      "workaround": "Pin and record the image digest before the next pod starts.",
+      "evidence_path": "environment/os-release.txt"
+    },
+    {
+      "id": "dspark-output-divergence",
+      "severity": "medium",
+      "status": "open",
+      "summary": "Target-only and DSpark fixed-prompt outputs were not byte-identical under greedy settings.",
+      "impact": "The faster path may change output behavior and requires wider quality evaluation.",
+      "workaround": "Run a frozen full-quality suite against both paths and diff every response.",
+      "evidence_path": "raw/performance/fixed-generation-dspark.jsonl"
+    },
+    {
+      "id": "ifeval-partial",
+      "severity": "medium",
+      "status": "accepted",
+      "summary": "IFEval was limited to the first 20 of 541 prompts and the lm-eval Git revision was not captured.",
+      "impact": "The result is a pilot and is not comparable to a full leaderboard result.",
+      "workaround": "Run all 541 prompts with a pinned lm-eval commit.",
+      "evidence_path": "raw/ifeval/results.json"
+    },
+    {
+      "id": "tokenizer-template-hash-missing",
+      "severity": "medium",
+      "status": "open",
+      "summary": "The tokenizer and chat template embedded in the GGUF were not separately extracted and hashed.",
+      "impact": "Template identity is coupled only to the full GGUF file hash.",
+      "workaround": "Extract and hash embedded metadata in the next run.",
+      "evidence_path": "environment/model-sha256.txt"
+    },
+    {
+      "id": "host-resource-visibility",
+      "severity": "low",
+      "status": "accepted",
+      "summary": "lscpu and free report host-visible resources rather than the pod's contractual allocation.",
+      "impact": "Host CPU and RAM totals must not be presented as allocated resources.",
+      "workaround": "Use the provider control-plane allocation and capture cgroup limits next time.",
+      "evidence_path": "environment/lscpu.txt"
+    },
+    {
+      "id": "legacy-smoke-timing-redaction",
+      "severity": "low",
+      "status": "resolved",
+      "summary": "Smoke suite versions .1 and .2 over-redacted prompt_per_token_ms and predicted_per_token_ms as secret-looking keys.",
+      "impact": "Those two redundant timing fields are absent from the smoke records; tok/s and fixed-run timings remain intact.",
+      "workaround": "Suite .3 uses an explicit timing-key allowlist while continuing to redact credential tokens.",
+      "evidence_path": "raw/smoke/reasoning-adaptive.jsonl"
+    }
+  ],
+  "privacy": {
+    "contains_secrets": false,
+    "contains_private_inputs": false,
+    "redactions": [
+      "GPU UUID removed from public smoke JSONL",
+      "Runpod pod, account and user identifiers omitted",
+      "API credentials omitted"
+    ],
+    "reviewed_for_publication_at": "2026-08-08T11:14:00Z",
+    "reviewed_by": "Y Proof Lab"
+  }
+}

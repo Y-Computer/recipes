@@ -1,0 +1,5 @@
+/workspace/y-proof/models/deepseek-v4-0731-iq3xxs/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf 5257696 bytes
+/workspace/y-proof/models/deepseek-v4-0731-iq3xxs/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00002-of-00004.gguf 49910532416 bytes
+/workspace/y-proof/models/deepseek-v4-0731-iq3xxs/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00003-of-00004.gguf 49257859456 bytes
+/workspace/y-proof/models/deepseek-v4-0731-iq3xxs/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00004-of-00004.gguf 5034198464 bytes
+/workspace/y-proof/models/deepseek-v4-0731-iq3xxs/dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf 10896057440 bytes

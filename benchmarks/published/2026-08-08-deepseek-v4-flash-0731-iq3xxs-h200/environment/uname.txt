@@ -1,0 +1,1 @@
+Linux 654f184fe95f 6.8.0-83-generic #83~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Sep  9 18:19:47 UTC 2 x86_64 x86_64 x86_64 GNU/Linux

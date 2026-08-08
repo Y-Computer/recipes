@@ -1,0 +1,59 @@
+{
+  "target_only": {
+    "samples": 5,
+    "generated_tokens_each": [
+      256,
+      256,
+      256,
+      256,
+      256
+    ],
+    "generation_tokens_per_second": {
+      "mean": 61.4177460803395,
+      "median": 61.48633118027096,
+      "min": 61.17476579145331,
+      "max": 61.5223119315795,
+      "stdev": 0.1432958249128842
+    },
+    "end_to_end_latency_ms": {
+      "mean": 4216.1924,
+      "median": 4204.549,
+      "min": 4202.271,
+      "max": 4254.002,
+      "stdev": 21.89301138034715
+    }
+  },
+  "dspark_q8_n3": {
+    "samples": 5,
+    "generated_tokens_each": [
+      256,
+      256,
+      256,
+      256,
+      256
+    ],
+    "generation_tokens_per_second": {
+      "mean": 90.94820555160827,
+      "median": 90.87291600183308,
+      "min": 90.8056769155298,
+      "max": 91.14150822819128,
+      "stdev": 0.15449389945211858
+    },
+    "end_to_end_latency_ms": {
+      "mean": 2856.9698,
+      "median": 2859.215,
+      "min": 2850.941,
+      "max": 2861.372,
+      "stdev": 4.8472186560954995
+    },
+    "draft": {
+      "drafted_total": 1495,
+      "accepted_total": 770,
+      "acceptance_ratio": 0.5150501672240803
+    }
+  },
+  "speedup": {
+    "generation_tps_ratio": 1.4808131420622386,
+    "latency_reduction_fraction": 0.3223815402731621
+  }
+}
