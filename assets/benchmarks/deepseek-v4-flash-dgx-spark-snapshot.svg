@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1060" viewBox="0 0 1400 1060" role="img" aria-labelledby="title desc">
+  <title id="title">Y benchmark snapshot: DeepSeek V4 Flash 0731 on one NVIDIA DGX Spark</title>
+  <desc id="desc">Y measured 28.29 tokens per second and 9.34 seconds for a fixed 256-token response using its IQ3_M speculative sidecar, compared with 16.93 tokens per second and 15.41 seconds target-only. The Y sidecar is 7.95 GiB and left 9.07 GiB minimum observed memory available.</desc>
+
+  <rect width="1400" height="1060" rx="28" fill="#fbf8f5"/>
+
+  <text x="42" y="54" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.4">Y PROOF 001 · EXACT NVIDIA DGX SPARK · 08 AUG 2026</text>
+  <text x="42" y="126" fill="#141311" font-family="Georgia, serif" font-size="58" font-weight="700">One Spark. 284.3B parameters.</text>
+  <text x="42" y="169" fill="#6f6b63" font-family="Arial, sans-serif" font-size="22">DeepSeek V4 Flash 0731 · same machine · same target · same prompt</text>
+  <text x="1316" y="80" fill="#141311" font-family="Georgia, serif" font-size="46" font-weight="700" text-anchor="end">Y</text>
+
+  <rect x="42" y="194" width="785" height="56" rx="10" fill="#141311"/>
+  <text x="68" y="231" fill="#ffc671" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="0.4">28.29 TOK/S · 1.67× TARGET-ONLY · 39.40% LESS WALL TIME</text>
+  <rect x="842" y="194" width="516" height="56" rx="10" fill="#ffc671"/>
+  <text x="1100" y="230" fill="#141311" font-family="Arial, sans-serif" font-size="21" font-weight="700" text-anchor="middle">RAW EVIDENCE + RECIPE PUBLIC</text>
+
+  <!-- Fixed-response latency card -->
+  <rect x="42" y="278" width="640" height="300" rx="22" fill="#ffffff" stroke="#ded8ce"/>
+  <text x="72" y="322" fill="#141311" font-family="Georgia, serif" font-size="29" font-weight="700">Time for 256 generated tokens</text>
+  <text x="72" y="350" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16">Mean wall time · lower is faster · n=5 after one warm-up</text>
+  <line x1="90" y1="390" x2="650" y2="390" stroke="#ece8e1"/>
+  <line x1="90" y1="445" x2="650" y2="445" stroke="#ece8e1"/>
+  <line x1="90" y1="500" x2="650" y2="500" stroke="#cfc9bf"/>
+
+  <rect x="154" y="394" width="72" height="106" rx="7" fill="#8f8f8f"/>
+  <text x="190" y="382" fill="#6f6b63" font-family="ui-monospace, monospace" font-size="18" text-anchor="middle">15.41 s</text>
+  <text x="190" y="535" fill="#6f6b63" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Target</text>
+
+  <rect x="324" y="435" width="72" height="65" rx="7" fill="#1c3e56"/>
+  <text x="360" y="423" fill="#6f6b63" font-family="ui-monospace, monospace" font-size="18" text-anchor="middle">9.40 s</text>
+  <text x="360" y="535" fill="#6f6b63" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Upstream</text>
+
+  <rect x="494" y="436" width="72" height="64" rx="7" fill="#ffc671" stroke="#141311" stroke-width="2"/>
+  <rect x="479" y="394" width="102" height="30" rx="15" fill="#141311"/>
+  <text x="530" y="415" fill="#ffffff" font-family="ui-monospace, monospace" font-size="16" font-weight="700" text-anchor="middle">9.34 s</text>
+  <text x="530" y="535" fill="#141311" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Y IQ3_M</text>
+
+  <!-- Generation throughput card -->
+  <rect x="718" y="278" width="640" height="300" rx="22" fill="#ffffff" stroke="#ded8ce"/>
+  <text x="748" y="322" fill="#141311" font-family="Georgia, serif" font-size="29" font-weight="700">Generation throughput</text>
+  <text x="748" y="350" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16">Generated tokens per second · higher is faster · same run</text>
+  <line x1="766" y1="390" x2="1326" y2="390" stroke="#ece8e1"/>
+  <line x1="766" y1="445" x2="1326" y2="445" stroke="#ece8e1"/>
+  <line x1="766" y1="500" x2="1326" y2="500" stroke="#cfc9bf"/>
+
+  <rect x="830" y="425" width="72" height="75" rx="7" fill="#8f8f8f"/>
+  <text x="866" y="413" fill="#6f6b63" font-family="ui-monospace, monospace" font-size="18" text-anchor="middle">16.93</text>
+  <text x="866" y="535" fill="#6f6b63" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Target</text>
+
+  <rect x="1000" y="376" width="72" height="124" rx="7" fill="#1c3e56"/>
+  <text x="1036" y="364" fill="#6f6b63" font-family="ui-monospace, monospace" font-size="18" text-anchor="middle">28.09</text>
+  <text x="1036" y="535" fill="#6f6b63" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Upstream</text>
+
+  <rect x="1170" y="375" width="72" height="125" rx="7" fill="#ffc671" stroke="#141311" stroke-width="2"/>
+  <rect x="1152" y="333" width="108" height="30" rx="15" fill="#141311"/>
+  <text x="1206" y="354" fill="#ffffff" font-family="ui-monospace, monospace" font-size="16" font-weight="700" text-anchor="middle">28.29</text>
+  <text x="1206" y="535" fill="#141311" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Y IQ3_M</text>
+
+  <!-- Dense benchmark snapshot -->
+  <rect x="42" y="610" width="1316" height="368" rx="22" fill="#ffffff" stroke="#ded8ce"/>
+  <text x="72" y="654" fill="#141311" font-family="Georgia, serif" font-size="29" font-weight="700">Exact-run benchmark snapshot</text>
+  <text x="72" y="682" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16">Fit, speed and serving integrity on one NVIDIA P4242 / GB10</text>
+
+  <text x="892" y="654" fill="#6f6b63" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">TARGET ONLY</text>
+  <text x="1084" y="654" fill="#1c3e56" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">UPSTREAM DSPARK</text>
+  <rect x="1193" y="629" width="134" height="38" rx="19" fill="#ffc671"/>
+  <text x="1260" y="654" fill="#141311" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Y IQ3_M</text>
+
+  <rect x="58" y="704" width="1284" height="30" rx="4" fill="#f0ece4"/>
+  <text x="74" y="725" fill="#6f6b63" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.8">SPEED · FIXED 256-TOKEN RESPONSE</text>
+  <text x="74" y="762" fill="#141311" font-family="Arial, sans-serif" font-size="17">Generation</text>
+  <text x="892" y="762" fill="#141311" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">16.9253 tok/s</text>
+  <text x="1084" y="762" fill="#141311" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">28.0867 tok/s</text>
+  <text x="1260" y="762" fill="#141311" font-family="ui-monospace, monospace" font-size="17" font-weight="700" text-anchor="middle">28.2875 tok/s</text>
+  <line x1="58" y1="777" x2="1342" y2="777" stroke="#ece8e1"/>
+  <text x="74" y="804" fill="#141311" font-family="Arial, sans-serif" font-size="17">Mean wall time</text>
+  <text x="892" y="804" fill="#141311" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">15.406 s</text>
+  <text x="1084" y="804" fill="#141311" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">9.396 s</text>
+  <text x="1260" y="804" fill="#141311" font-family="ui-monospace, monospace" font-size="17" font-weight="700" text-anchor="middle">9.337 s</text>
+
+  <rect x="58" y="823" width="1284" height="30" rx="4" fill="#f0ece4"/>
+  <text x="74" y="844" fill="#6f6b63" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.8">FIT · FILES + OBSERVED UNIFIED MEMORY</text>
+  <text x="74" y="881" fill="#141311" font-family="Arial, sans-serif" font-size="17">Sidecar size</text>
+  <text x="892" y="881" fill="#6f6b63" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">—</text>
+  <text x="1084" y="881" fill="#141311" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">10.148 GiB</text>
+  <text x="1260" y="881" fill="#141311" font-family="ui-monospace, monospace" font-size="17" font-weight="700" text-anchor="middle">7.951 GiB</text>
+  <line x1="58" y1="896" x2="1342" y2="896" stroke="#ece8e1"/>
+  <text x="74" y="923" fill="#141311" font-family="Arial, sans-serif" font-size="17">Minimum memory available</text>
+  <text x="892" y="923" fill="#141311" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">16.02 GiB</text>
+  <text x="1084" y="923" fill="#141311" font-family="ui-monospace, monospace" font-size="17" text-anchor="middle">7.01 GiB</text>
+  <text x="1260" y="923" fill="#141311" font-family="ui-monospace, monospace" font-size="17" font-weight="700" text-anchor="middle">9.07 GiB</text>
+
+  <rect x="58" y="940" width="1284" height="26" rx="4" fill="#141311"/>
+  <text x="74" y="959" fill="#ffc671" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">STACK GATE</text>
+  <text x="1260" y="959" fill="#ffffff" font-family="ui-monospace, monospace" font-size="15" font-weight="700" text-anchor="middle">6 / 6 PASSED</text>
+
+  <text x="42" y="1018" fill="#141311" font-family="Arial, sans-serif" font-size="16" font-weight="700">SPEED + FIT MEASURED BY Y</text>
+  <text x="1358" y="1018" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16" text-anchor="end">Standardized intelligence score: separate evaluation</text>
+  <text x="42" y="1044" fill="#6f6b63" font-family="ui-monospace, monospace" font-size="14">n=5 · one warm-up · 256 generated tokens · temperature 0 · seed 42 · one client · llama.cpp b10327</text>
+</svg>

@@ -1,5 +1,11 @@
 # Build the Y IQ3_M DSpark sidecar on DGX Spark
 
+[![DeepSeek V4 Flash 0731 benchmark snapshot on one NVIDIA DGX Spark](../../assets/benchmarks/deepseek-v4-flash-dgx-spark-snapshot.svg)](../../benchmarks/published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md)
+
+**Measured result:** 284.3B parameters on one DGX Spark at **28.29 tok/s**,
+**1.67×** the target-only path, with **9.07 GiB** minimum observed memory
+available and **0 KiB** maximum process swap.
+
 This recipe requantizes Unsloth's DSpark draft named `Q8_0` for DeepSeek V4
 Flash 0731 into the smaller Y `IQ3_M` speculative-decoding sidecar. It reproduces
 the artifact tested on an NVIDIA DGX Spark; it does not create a standalone

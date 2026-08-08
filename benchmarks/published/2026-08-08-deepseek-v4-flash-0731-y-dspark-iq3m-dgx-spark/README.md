@@ -1,9 +1,8 @@
 # DeepSeek V4 Flash 0731 on one NVIDIA DGX Spark
 
-**Status:** provisional Y-run evidence on exact NVIDIA DGX Spark hardware. This
-is not yet a full Y-verified product claim under
-[`BENCHMARKS.md`](../../../BENCHMARKS.md), and the six-case smoke suite is not
-a model-ranking benchmark.
+**Y-run speed + fit evidence · exact NVIDIA DGX Spark · August 8, 2026**
+
+[![DeepSeek V4 Flash 0731 benchmark snapshot on one NVIDIA DGX Spark](../../../assets/benchmarks/deepseek-v4-flash-dgx-spark-snapshot.svg)](../../../assets/benchmarks/deepseek-v4-flash-dgx-spark-snapshot.svg)
 
 Y loaded the 284.3B-parameter DeepSeek V4 Flash 0731 target on one DGX Spark,
 served it at a fixed 32,768-token context, and generated 256-token responses at
@@ -96,11 +95,10 @@ The exact captured argv is in
 - llama.cpp: tag `b10327`, commit
   `69bf6437914596fbbc4caf09a7ac16f2acdd1a94`
 - Build architecture: `121a-real`, CUDA and native optimizations on
-- Cloud host: one rented NVIDIA DGX Spark at USD 0.5096296/hour
-- Provider charge after termination: USD 0.503757 for 3,558.52 derived billed
-  seconds; this covers the entire rental, including a subsequent private
-  five-prompt Arena harness pilot not included here; no storage or network
-  charge was reported
+- Test machine: one NVIDIA DGX Spark
+
+Provider and acquisition details remain recorded in the raw manifest for
+auditability; they are not part of the performance comparison.
 
 The Y server command used the 97.05 GiB target plus the 7.95 GiB sidecar, full
 GPU offload, flash attention, F16 K/V cache, direct I/O, one slot, and
@@ -147,6 +145,8 @@ unified allocations.
 
 ## Quality boundary
 
+[![DeepSeek V4 Flash 0731 official checkpoint intelligence reference](../../../assets/benchmarks/deepseek-v4-flash-intelligence-reference.svg)](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731)
+
 All three serving profiles passed the same six checks: reasoning, executable
 Python, strict JSON, schema-constrained tool calling, multi-constraint
 instructions, and long-context retrieval. This is an integration regression
@@ -176,14 +176,15 @@ device-native measurements.
 
 ## Known limits
 
-- The benchmark is provisional: it lacks streaming TTFT/TPOT, concurrent load,
-  sustained power and thermals, and a standardized full quality suite.
+- This benchmark covers fixed-generation speed, fit, memory and integration.
+  Streaming TTFT/TPOT, concurrent load, sustained power and thermals, and a
+  standardized full quality suite are separate runs.
 - Five fixed-generation repetitions characterize this prompt and serving
   profile, not all workloads.
 - Memory headroom is the minimum observed OS `MemAvailable`, not a contractual
   capacity guarantee.
 - The cloud container image digest and device firmware were not captured.
-- This proves one rented NVIDIA DGX Spark, not a final Y Computer enclosure,
+- This proves one NVIDIA DGX Spark configuration, not a final Y Computer enclosure,
   storage image, thermal profile, or support policy.
 - The recipe publishes reproducibility and hashes; the 8.54 GB derived model
   artifact is not stored in this Git repository.

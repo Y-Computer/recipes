@@ -1,121 +1,116 @@
-# Y Proof Lab
+# Y Recipes
 
-**See an AI demo online? We turn it into a reproducible local build.**
+### Build private AI systems that should not fit on one desk.
 
-Send us an X post, a Hugging Face model, or a GitHub workflow. We reproduce
-it on the cheapest sensible cloud GPU, quantize it when that genuinely helps,
-then prove the smallest Y Computer that can run it.
+Y Recipes is the open systems library behind [Y Computer](https://y.computer):
+pinned models, optimized runtimes, exact-device benchmarks, raw evidence and
+reproducible builds for people who want to own the intelligence their work
+depends on.
 
-No machine recommendation until the workload runs.
+[![DeepSeek V4 Flash 0731 benchmark snapshot on one NVIDIA DGX Spark](assets/benchmarks/deepseek-v4-flash-dgx-spark-snapshot.svg)](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md)
 
-- [See the visual Proof Lab](https://y.computer/recipes/)
-- [Send Y a model or demo to prove](https://y.computer/contact/?subject=Prove%20this%20model)
-- [Read the cloud and quantization plan](LAB.md)
-- [Track the latest downloadable model queue](benchmarks/LATEST_MODEL_QUEUE.md)
-- [Browse upstream demos queued for reproduction](DEMOS.md)
+## Flagship proof: 284.3B on one DGX Spark
 
-## The path from post to product
+We ran all 284.3 billion parameters of DeepSeek V4 Flash 0731 on one NVIDIA
+DGX Spark, then built a smaller Y speculative-decoding sidecar on that same
+machine.
 
-```text
-X / Hugging Face / GitHub
-            |
-            v
-cheap cloud reproduction
-            |
-            v
-quantize + test quality
-            |
-            v
-exact-device sign-off
-            |
-            v
-one-command Y OS install
-```
+| Exact same-machine result | Target only | Upstream DSpark | **Y IQ3_M** |
+|---|---:|---:|---:|
+| Fixed 256-token generation | 16.93 tok/s | 28.09 tok/s | **28.29 tok/s** |
+| Mean wall time | 15.41 s | 9.40 s | **9.34 s** |
+| Sidecar size | — | 10.15 GiB | **7.95 GiB** |
+| Minimum observed memory available | 16.02 GiB | 7.01 GiB | **9.07 GiB** |
+| Integration gate | 6/6 | 6/6 | **6/6** |
 
-Cloud proves that the software works. Only the target hardware proves the
-product.
+That is **1.67× target-only throughput**, **39.40% less wall time**, a
+**21.64% smaller sidecar** than upstream, and **2.06 GiB more observed memory
+headroom** than the upstream path. The server was configured for 32,768 tokens;
+the longest tested input was 18,072 tokens; maximum process swap was 0 KiB.
 
-## One Spark. 284B local. 28.29 tok/s.
-
-We rented an actual NVIDIA DGX Spark, verified the NVIDIA P4242 board and GB10,
-and loaded all 284.3 billion parameters of DeepSeek V4 Flash 0731 locally.
-Then we built a smaller Y speculative-decoding sidecar on the same machine.
-
-| Result | Provisional Y measurement |
-|---|---:|
-| Target files | 97.051 GiB |
-| Configured context | 32,768 tokens |
-| Target-only generation | 16.93 tok/s |
-| Y path generation | **28.29 tok/s** |
-| Speed-up / latency reduction | **1.67x / 39.40%** |
-| Minimum observed available memory | **9.07 GiB** |
-| Integration smoke | **6/6** |
-| Spark compute billed | **USD 0.504** |
-
-The Y sidecar is 2.196 GiB smaller than the upstream draft—a 21.64% sidecar
-reduction—while matching its measured speed and smoke result. Raw requests,
-responses, hashes, build flags, conversion logs, memory telemetry, limitations,
-and a schema-valid run manifest are public.
-
-- [Inspect the complete DGX Spark proof](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md)
+- [Inspect every result, request, hash and memory sample](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md)
 - [Build the Y IQ3_M sidecar](recipes/dgx-spark-deepseek-v4-flash-y-dspark/README.md)
-- [Inspect the initial H200 software-path run](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-iq3xxs-h200/README.md)
+- [Open the machine-readable summary](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/evidence/derived/summary.json)
+- [See the visual benchmark on y.computer](https://y.computer/recipes/)
 
-## Proof file 001
+## Where does the intelligence sit?
 
-### One long-context agent endpoint and two video generators, concurrently
+[![DeepSeek V4 Flash 0731 official checkpoint intelligence reference](assets/benchmarks/deepseek-v4-flash-intelligence-reference.svg)](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731)
 
-A source-audited community experiment uses two NVIDIA DGX Sparks as one
-distributed DeepSeek V4 Flash endpoint while each node also runs an independent
-video-generation lane.
+The official DeepSeek checkpoint launches in the **frontier agentic band**. In
+DeepSeek's own same-panel evaluation, V4 Flash 0731 scores 82.7 on
+Terminal-Bench 2.1 versus 81.0 for GLM-5.2 and 85.0 for Claude Opus 4.8. It
+also lands between those two on DeepSWE, Toolathlon-Verified and Agents' Last
+Exam. [See the official model card and full table.](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731)
 
-| Result | Source-reported measurement |
-|---|---:|
-| Configured agent context | 1,048,576 tokens |
-| Agent throughput during two renders | 100.79 aggregate tok/s at C6 |
-| Video output | Two 15.08-second, 832 × 480 clips with audio |
-| Reported render wall time | About 28.5 minutes per clip |
+That locates the **official checkpoint**, not this exact 3-bit target and Y
+sidecar. Speed is measured here; intelligence must be measured on a common
+harness. The exact Y stack is therefore getting a paired three-profile suite:
 
-**Evidence:** source-audited, not Y-reproduced. The throughput result is a
-deterministic counting-prompt ceiling from one sweep, not ordinary prose speed.
-Measurements are reported by TonyD2Wild.
+1. Target-only `UD-IQ3_XXS`.
+2. The same target with the upstream DSpark sidecar.
+3. The same target with the Y `IQ3_M` sidecar.
 
-**Availability:** research example only. MiniMax H3's community license excludes
-the United States and European Union. A US/EU deployment needs an authorized or
-commercially permitted video backend.
+The first public quality panel will use pinned MMLU-Pro, GPQA Diamond,
+LiveCodeBench v6 and BFCL v4 prompts, seeds and output budgets across all three
+profiles. We will publish the scores, parse failures and raw outputs together.
+The existing 6/6 gate proves the serving stack works; it is not presented as an
+intelligence score.
 
-[Open the complete proof file](recipes/dgx-spark-agent-video-factory/README.md)
+## Open systems, not screenshots
 
-## What the labels mean
+### Private frontier reasoning
 
-- **Y verified** — repeated by Y on the named hardware, with the prompt,
-  versions, raw results, memory use, and limitations published.
-- **Source audited** — we inspected the upstream code and evidence, but have
-  not reproduced the run.
-- **Upstream demo** — an original third-party example. Its claims are
-  source-reported and linked; it is not presented as Y's work.
-- **In the lab** — a queued experiment, not a performance claim.
+Run one large OpenAI-compatible endpoint for coding agents, research,
+automations and internal tools without sending every prompt to a model host.
 
-## What every finished proof file contains
+[Open the DeepSeek-on-Spark build →](recipes/dgx-spark-deepseek-v4-flash-y-dspark/README.md)
 
-1. The useful outcome and visible output.
-2. The exact device and memory limit.
-3. Model, quant, runtime, prompt, and commit hashes.
-4. Cold load, prefill, decode, peak memory, power, and thermals where relevant.
-5. Quality checks against the source checkpoint.
-6. License and US commercial-use gates.
-7. A DIY runbook and the Y OS one-command path.
+### Agent + video factory
 
-## About Y
+Connect a long-context agent endpoint to independent video-generation lanes
+and let one private system reason, plan and render.
 
-Y builds private AI computers and Y OS for people who want to own the AI their
-work depends on: solo founders, AI-native studios, privacy maximalists, and
-small teams operating at unreasonable speed.
+[Open the dual-Spark video factory →](recipes/dgx-spark-agent-video-factory/README.md)
 
-- Website: <https://y.computer>
-- Y OS: <https://y.computer/y-os/>
-- Company GitHub: <https://github.com/Y-Computer>
+### Models from phone to desk-side
 
-This repository distributes documentation and orchestration guidance, not
-third-party model weights. Models, projects, and trademarks belong to their
-respective owners. A compatibility test does not imply endorsement.
+Y tracks the newest downloadable weights, their real memory class, license,
+runtime and smallest useful device—from phone-class models to 284B desk-side
+systems.
+
+[Open the August model queue →](benchmarks/LATEST_MODEL_QUEUE.md)
+
+## What Y OS adds
+
+The repository gives you the build. Y OS turns the build into a product:
+
+- installs and pins the model, runtime and tools;
+- exposes one private OpenAI-compatible endpoint;
+- routes coding, research, media and automation apps to local models;
+- manages updates, health, memory and recovery;
+- keeps the full evidence record attached to the running configuration.
+
+You can fork everything here and build it yourself. Or Y can ship the machine
+configured, benchmarked and ready to work.
+
+- [Configure a Y Computer](https://y.computer/build/)
+- [Explore Y OS](https://y.computer/y-os/)
+- [Talk to Y](https://y.computer/contact/?subject=Build%20this%20system)
+
+## Evidence standard
+
+Every published result names the model revision, runtime commit, exact hardware,
+prompt class, context, concurrency, run count and known boundary. Finished proof
+files include raw machine-readable outputs, hashes, commands, telemetry and a
+schema-valid manifest.
+
+- [Benchmark policy](BENCHMARKS.md)
+- [Run-manifest schema](benchmarks/manifests/run-manifest.schema.json)
+- [Contribution guide](CONTRIBUTING.md)
+- [Third-party notices](THIRD_PARTY_NOTICES.md)
+
+This repository distributes Y-authored documentation, harnesses and
+orchestration guidance—not third-party model weights. Models, projects and
+trademarks belong to their respective owners. Preserve upstream notices and
+review the applicable license before commercial deployment.

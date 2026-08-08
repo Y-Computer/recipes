@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1060" viewBox="0 0 1400 1060" role="img" aria-labelledby="title desc">
+  <title id="title">DeepSeek V4 Flash 0731 official checkpoint intelligence reference</title>
+  <desc id="desc">DeepSeek's official agentic benchmark panel compares V4 Flash 0731 with GLM-5.2 and Claude Opus 4.8. Separate cards show provider-reported Terminal-Bench 2.1 panels from OpenAI, Anthropic and Google. These launch panels use different agent harnesses and are not one leaderboard. The exact Y quantized stack has not yet received a standardized intelligence score.</desc>
+
+  <rect width="1400" height="1060" rx="28" fill="#fbf8f5"/>
+  <text x="42" y="54" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.4">Y INTELLIGENCE LAYER · CHECKPOINT REFERENCE · 08 AUG 2026</text>
+  <text x="42" y="126" fill="#141311" font-family="Georgia, serif" font-size="58" font-weight="700">Where does the model sit?</text>
+  <text x="42" y="169" fill="#6f6b63" font-family="Arial, sans-serif" font-size="22">Official checkpoint signal: frontier-open agentic band · exact Y quant: not classified yet</text>
+  <text x="1316" y="80" fill="#141311" font-family="Georgia, serif" font-size="46" font-weight="700" text-anchor="end">Y</text>
+
+  <rect x="42" y="194" width="760" height="56" rx="10" fill="#141311"/>
+  <text x="68" y="231" fill="#ffc671" font-family="Arial, sans-serif" font-size="22" font-weight="700">DEEPSEEK OFFICIAL SAME-PANEL COMPARISON</text>
+  <rect x="818" y="194" width="540" height="56" rx="10" fill="#ffc671"/>
+  <text x="1088" y="230" fill="#141311" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">REFERENCE CHECKPOINT · NOT Y QUANT</text>
+
+  <rect x="42" y="278" width="1316" height="468" rx="22" fill="#ffffff" stroke="#ded8ce"/>
+  <text x="70" y="321" fill="#141311" font-family="Georgia, serif" font-size="29" font-weight="700">DeepSeek V4 Flash 0731: official agentic snapshot</text>
+  <text x="70" y="349" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16">Higher is better · release harness · max effort · temperature 1 · top-p 0.95</text>
+
+  <rect x="58" y="374" width="1284" height="50" rx="7" fill="#f0ece4"/>
+  <text x="76" y="406" fill="#6f6b63" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.2">AGENTIC BENCHMARK</text>
+  <rect x="665" y="374" width="233" height="50" rx="7" fill="#ffc671" fill-opacity="0.65"/>
+  <text x="781" y="405" fill="#141311" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">DEEPSEEK V4 0731</text>
+  <text x="1017" y="405" fill="#6f6b63" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">GLM-5.2</text>
+  <text x="1234" y="405" fill="#6f6b63" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">CLAUDE OPUS 4.8</text>
+
+  <g font-family="Arial, sans-serif" font-size="17" fill="#141311">
+    <text x="76" y="460">Terminal-Bench 2.1</text>
+    <text x="76" y="504">NL2Repo</text>
+    <text x="76" y="548">CyberGym</text>
+    <text x="76" y="592">DeepSWE</text>
+    <text x="76" y="636">Toolathlon-Verified</text>
+    <text x="76" y="680">Agents’ Last Exam</text>
+    <text x="76" y="724">AutomationBench Public</text>
+  </g>
+
+  <rect x="665" y="424" width="233" height="308" fill="#ffc671" fill-opacity="0.14"/>
+  <g font-family="ui-monospace, monospace" font-size="18" fill="#141311" text-anchor="middle">
+    <text x="781" y="460" font-weight="700">82.7</text><text x="1017" y="460">81.0</text><text x="1234" y="460">85.0</text>
+    <text x="781" y="504" font-weight="700">54.2</text><text x="1017" y="504">48.9</text><text x="1234" y="504">69.7</text>
+    <text x="781" y="548" font-weight="700">76.7</text><text x="1017" y="548">—</text><text x="1234" y="548">83.1</text>
+    <text x="781" y="592" font-weight="700">54.4</text><text x="1017" y="592">46.2</text><text x="1234" y="592">58.0</text>
+    <text x="781" y="636" font-weight="700">70.3</text><text x="1017" y="636">59.9</text><text x="1234" y="636">76.2</text>
+    <text x="781" y="680" font-weight="700">25.2</text><text x="1017" y="680">23.8</text><text x="1234" y="680">25.7</text>
+    <text x="781" y="724" font-weight="700">25.1</text><text x="1017" y="724">12.9</text><text x="1234" y="724">27.2</text>
+  </g>
+  <g stroke="#ece8e1">
+    <line x1="58" y1="468" x2="1342" y2="468"/><line x1="58" y1="512" x2="1342" y2="512"/>
+    <line x1="58" y1="556" x2="1342" y2="556"/><line x1="58" y1="600" x2="1342" y2="600"/>
+    <line x1="58" y1="644" x2="1342" y2="644"/><line x1="58" y1="688" x2="1342" y2="688"/>
+  </g>
+
+  <text x="42" y="790" fill="#6f6b63" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.8">CURRENT FRONTIER LAUNCH PANELS · MARKET CONTEXT ONLY · DIFFERENT AGENT HARNESSES</text>
+
+  <rect x="42" y="816" width="421" height="174" rx="18" fill="#141311"/>
+  <text x="66" y="848" fill="#ffc671" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2">OPENAI · TB2.1</text>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#ffffff">
+    <text x="66" y="884">GPT-5.6 Sol</text><text x="438" y="884" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">88.8</text>
+    <text x="66" y="922" fill="#ffffff" fill-opacity="0.68">GPT-5.6 Terra</text><text x="438" y="922" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">87.4</text>
+    <text x="66" y="960" fill="#ffffff" fill-opacity="0.68">GPT-5.6 Luna</text><text x="438" y="960" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">84.7</text>
+  </g>
+
+  <rect x="489" y="816" width="421" height="174" rx="18" fill="#141311"/>
+  <text x="513" y="848" fill="#ffc671" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2">ANTHROPIC MINI-SWE · TB2.1</text>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#ffffff">
+    <text x="513" y="884">Claude Fable 5</text><text x="885" y="884" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">84.3</text>
+    <text x="513" y="922" fill="#ffffff" fill-opacity="0.68">Claude Opus 4.8</text><text x="885" y="922" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">82.7</text>
+    <text x="513" y="960" fill="#ffffff" fill-opacity="0.68">Claude Sonnet 5</text><text x="885" y="960" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">80.4</text>
+  </g>
+
+  <rect x="937" y="816" width="421" height="174" rx="18" fill="#141311"/>
+  <text x="961" y="848" fill="#ffc671" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2">GOOGLE TERMINUS-2 · TB2.1</text>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#ffffff">
+    <text x="961" y="884">Gemini 3.6 Flash</text><text x="1333" y="884" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">78.0</text>
+    <text x="961" y="922" fill="#ffffff" fill-opacity="0.68">Gemini 3.5 Flash</text><text x="1333" y="922" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">76.2</text>
+    <text x="961" y="960" fill="#ffffff" fill-opacity="0.68">Gemini 3.1 Pro</text><text x="1333" y="960" text-anchor="end" font-family="ui-monospace, monospace" font-weight="700">73.8</text>
+  </g>
+
+  <text x="42" y="1028" fill="#141311" font-family="Arial, sans-serif" font-size="16" font-weight="700">OFFICIAL CHECKPOINT: FRONTIER-OPEN SIGNAL</text>
+  <text x="1358" y="1028" fill="#6f6b63" font-family="Arial, sans-serif" font-size="16" text-anchor="end">Exact Y target + sidecar: paired quality suite required</text>
+  <text x="42" y="1050" fill="#6f6b63" font-family="Arial, sans-serif" font-size="13">Do not rank across the three provider cards: identical benchmark names do not make different agent scaffolds directly comparable.</text>
+</svg>
