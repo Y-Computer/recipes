@@ -35,25 +35,31 @@ one-command Y OS install
 Cloud proves that the software works. Only the target hardware proves the
 product.
 
-## First live Y run
+## One Spark. 284B local. 28.29 tok/s.
 
-We ran the July 31 DeepSeek V4 Flash 0731 release online on one NVIDIA H200,
-using the 104.20 GB Unsloth `UD-IQ3_XXS` quant and a Q8 DSpark draft.
+We rented an actual NVIDIA DGX Spark, verified the NVIDIA P4242 board and GB10,
+and loaded all 284.3 billion parameters of DeepSeek V4 Flash 0731 locally.
+Then we built a smaller Y speculative-decoding sidecar on the same machine.
 
 | Result | Provisional Y measurement |
 |---|---:|
-| Target-only generation | 61.42 tok/s |
-| DSpark generation | 90.95 tok/s |
-| DSpark speed-up | 1.48x |
-| Adaptive integration smoke | 6/6 |
-| Peak target + draft GPU memory | 111,182 MiB |
+| Target files | 97.051 GiB |
+| Configured context | 32,768 tokens |
+| Target-only generation | 16.93 tok/s |
+| Y path generation | **28.29 tok/s** |
+| Speed-up / latency reduction | **1.67x / 39.40%** |
+| Minimum observed available memory | **9.07 GiB** |
+| Integration smoke | **6/6** |
+| Spark compute billed | **USD 0.504** |
 
-The test cost about USD 2.59 in estimated H200 compute. Raw requests,
-responses, model hashes, runtime identity and limitations are public. This is a
-cloud software-path result, not yet proof for a DGX Spark or another sellable
-Y Computer.
+The Y sidecar is 2.196 GiB smaller than the upstream draft—a 21.64% sidecar
+reduction—while matching its measured speed and smoke result. Raw requests,
+responses, hashes, build flags, conversion logs, memory telemetry, limitations,
+and a schema-valid run manifest are public.
 
-[Inspect the complete DeepSeek evidence](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-iq3xxs-h200/README.md)
+- [Inspect the complete DGX Spark proof](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md)
+- [Build the Y IQ3_M sidecar](recipes/dgx-spark-deepseek-v4-flash-y-dspark/README.md)
+- [Inspect the initial H200 software-path run](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-iq3xxs-h200/README.md)
 
 ## Proof file 001
 

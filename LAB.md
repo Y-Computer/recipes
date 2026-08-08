@@ -5,8 +5,9 @@ provider page before starting a long job.
 
 ## The short answer
 
-- Start on **Runpod**, not a DGX Spark. It is the cheapest predictable path we
-  found for public-weight smoke tests.
+- Start on **Runpod** for predictable datacenter-GPU smoke tests. For an exact
+  DGX Spark claim, a verified marketplace Spark can now be cheaper: Y's live
+  August 8 offer was USD 0.5096296/hour.
 - Use **Modal** when per-second automation and serverless job orchestration are
   worth more than the lowest hourly rate.
 - Rent a high-host-RAM or multi-GPU machine only to create a quant that cannot
@@ -25,10 +26,13 @@ provider page before starting a long job.
 | ~100B Q4 | Runpod RTX PRO 6000, 96GB | $1.99/hour | Large single-GPU fit test |
 | 200B-class MoE Q4 | Runpod H200, 141GB | $4.39/hour | Large-checkpoint reproduction |
 | Blackwell kernel test | Runpod B200, 180GB | $5.89/hour | Datacenter Blackwell compatibility |
+| Exact GB10 / 128GB test | Vast.ai DGX Spark offer | $0.51/hour observed | Final ARM64 fit and Spark performance |
 
 Source: [Runpod pricing](https://www.runpod.io/pricing). Storage and network
-charges are separate. Vast.ai can list lower marketplace offers, but host-set
-pricing and hardware variance make it less suitable for evidence-grade runs.
+charges are separate. Vast.ai marketplace prices and hosts vary, so verify
+`sys_vendor`, product, board, GPU, memory, driver, and architecture before
+accepting a result. Y's exact-device capture is
+[public here](benchmarks/published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md).
 
 Modal's comparable published GPU compute is approximately $0.80/hour for L4,
 $1.95/hour for L40S, $2.50/hour for A100 80GB, $4.54/hour for H200, and
@@ -96,7 +100,7 @@ Sources: [Lambda instances](https://lambda.ai/instances) and
 | Liquid LFM2.5-2.6B | Official 1.59GB Q4_0 and 1.67GB Q4_K_M; vendor reports phone inference | Phone proof candidate; LFM commercial license changes above $10M annual revenue |
 | Mach-1 Additive 35B | 8.13GB beta checkpoint and custom Apple Silicon engine | Laptop-class lab candidate; not phone-proven and compression recipe is not public |
 | Pokee-Isaac 28B | Product announcement and managed service; no public weights found | Cannot independently quantize, bundle, or verify yet |
-| DeepSeek V4 Flash | Public 284B/13B-active weights; large community/vendor quants | Cloud or cluster lab; do not market as a one-Spark model |
+| DeepSeek V4 Flash | Public 284B/13B-active weights; Y loaded the 97.051 GiB target plus 7.951 GiB sidecar on one DGX Spark | Pro Max proof: 28.29 tok/s fixed generation at a configured 32K context; broader quality testing still required |
 
 Primary sources:
 
@@ -112,23 +116,25 @@ NVIDIA's current DGX Spark reference has 128GB unified memory and a $4,699
 listed price. It is the correct final bench for GB10 claims. It is unnecessary
 for the first software test.
 
-Third-party services advertise remote Spark access as low as $0.75/hour, but
-those providers are not NVIDIA and must be validated before sending private
-models or accepting their results as product evidence. Use public weights for
-an initial provider check, then retain the raw environment and benchmark data.
+Y rented and hardware-verified one marketplace DGX Spark at USD 0.5096296/hour.
+The machine identified itself as NVIDIA_DGX_Spark / P4242 with an NVIDIA GB10,
+ARM64, and 127,601,388 kB of OS-visible unified memory. Marketplace hosts still
+vary: use public weights first, never trust the listing alone, and retain the
+raw environment and benchmark data.
 
 Sources: [NVIDIA DGX Spark listing](https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/dgx-spark/),
 [DGX Spark porting guide](https://docs.nvidia.com/dgx/dgx-spark-porting-guide/overview.html),
 and [CUDA GPU compute capability table](https://developer.nvidia.com/cuda/gpus).
 
-## First three proof runs
+## Next three proof runs
 
 1. **Phone:** LFM2.5-2.6B Q4_K_M — offline chat, tool call, long document, and
    thermal soak on an 8GB-class Android phone.
 2. **Solo-company box:** Qwen3.6-35B-A3B NVFP4 — coding, browser research,
    cited document search, and one background image task on a 128GB machine.
-3. **Pro Max:** gpt-oss-120b — useful context, concurrency, and sustained
-   power/thermal measurements on an exact 128GB target.
+3. **Pro Max acceptance:** DeepSeek V4 Flash 0731 + Y IQ3_M DSpark — full
+   private Arena-Hard, near-32K input, concurrency, and sustained power/thermal
+   measurements after the completed fit-and-speed proof.
 
 Each finished run becomes a public proof file with reproducible commands and a
 one-command Y OS install profile.

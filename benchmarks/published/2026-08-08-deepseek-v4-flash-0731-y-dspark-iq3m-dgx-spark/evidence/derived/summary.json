@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "run_date": "2026-08-08",
+  "hardware": {
+    "system": "NVIDIA_DGX_Spark",
+    "board": "P4242",
+    "gpu": "NVIDIA GB10",
+    "architecture": "aarch64",
+    "configured_context_tokens": 32768
+  },
+  "artifacts": {
+    "target": {
+      "name": "DeepSeek-V4-Flash-0731-UD-IQ3_XXS",
+      "file_bytes": 104207848032,
+      "llama_bench_payload_bytes": 104202502492,
+      "parameters": 284334567511
+    },
+    "upstream_dspark": {
+      "name": "dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf",
+      "bytes": 10896057440,
+      "reported_bpw": 4.39,
+      "sha256": "2c7ac54b0b64a99df1f139a9f1371a00198265e1d6a614b77597d20a655a4249"
+    },
+    "y_dspark": {
+      "name": "dspark-DeepSeek-V4-Flash-0731-Y-IQ3_M.gguf",
+      "bytes": 8537851488,
+      "reported_bpw": 3.44,
+      "sha256": "02d621a2075faddc5dbb792166568fe57dbafc991e8b86e090e5109540e98954",
+      "quantization_seconds": 223.61926
+    },
+    "y_saved_bytes": 2358205952,
+    "y_size_reduction_fraction": 0.21642745231343052,
+    "target_plus_upstream_dspark_bytes": 115103905472,
+    "target_plus_y_dspark_bytes": 112745699520,
+    "combined_package_size_reduction_fraction": 0.020487625086465975
+  },
+  "fixed_generation": {
+    "method": {
+      "warmup_runs": 1,
+      "measured_runs": 5,
+      "generated_tokens_per_run": 256,
+      "temperature": 0,
+      "seed": 42,
+      "ignore_eos": true,
+      "reasoning": false,
+      "clients": 1
+    },
+    "target_only": {
+      "mean_generation_tokens_per_second": 16.925253602594417,
+      "mean_latency_ms": 15406.2412,
+      "successful_exact_runs": 5
+    },
+    "upstream_dspark": {
+      "mean_generation_tokens_per_second": 28.086660110224148,
+      "mean_latency_ms": 9395.498199999998,
+      "drafted_tokens": 1525,
+      "accepted_tokens": 765,
+      "acceptance_fraction": 0.5016393442622951,
+      "successful_exact_runs": 5
+    },
+    "y_dspark": {
+      "mean_generation_tokens_per_second": 28.287464516989246,
+      "mean_latency_ms": 9336.8134,
+      "drafted_tokens": 1500,
+      "accepted_tokens": 770,
+      "acceptance_fraction": 0.5133333333333333,
+      "successful_exact_runs": 5
+    },
+    "y_vs_target_speedup": 1.67131702609485,
+    "y_vs_target_latency_reduction_fraction": 0.393959027462195
+  },
+  "memory": {
+    "source": "/proc/meminfo and /proc/<pid>/status, sampled once per second",
+    "target_only_min_mem_available_kib": 16794420,
+    "upstream_dspark_min_mem_available_kib": 7351936,
+    "y_dspark_min_mem_available_kib": 9512900,
+    "target_only_min_mem_available_gib": 16.016407012939453,
+    "upstream_dspark_min_mem_available_gib": 7.0113525390625,
+    "y_dspark_min_mem_available_gib": 9.072208404541016,
+    "max_process_vmswap_kib": 0
+  },
+  "smoke": {
+    "suite_version": "2026-08-08.3",
+    "target_only": "6/6",
+    "upstream_dspark": "6/6",
+    "y_dspark": "6/6",
+    "longest_tested_input_tokens": 18072,
+    "interpretation": "Integration regression gate; not a standardized model-quality score."
+  },
+  "llama_bench_target_only": {
+    "repetitions": 3,
+    "prompt_512_tokens_per_second": 373.143677,
+    "prompt_4096_tokens_per_second": 365.979348,
+    "generation_128_tokens_per_second": 19.466816
+  }
+}

@@ -1,0 +1,18 @@
+0.00.289.785 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.290.070 W srv  llama_server: -----------------
+0.00.290.071 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.290.071 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.290.071 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.290.072 W srv  llama_server: -----------------
+0.00.291.296 I srv    load_model: loading model '/workspace/y/models/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf'
+0.12.027.695 I common_speculative_init_result: loading draft model '/workspace/y/models/dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf'
+0.13.569.496 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 32768, kv_unified = 'false'
+0.13.569.512 I common_speculative_impl_draft_dflash: adding speculative implementation 'draft-dspark'
+0.13.569.514 I common_speculative_impl_draft_dflash: - n_max=3, n_min=0, p_min=0.00
+0.13.569.514 I common_speculative_impl_draft_dflash: - block_size=5, mask_token_id=128799, n_extract=3
+0.13.591.516 W srv          init: --cache-idle-slots requires --cache-ram, disabling
+0.13.595.087 I srv  llama_server: model loaded
+0.13.595.091 I srv  llama_server: listening on http://127.0.0.1:8080
+0.13.595.092 W srv  llama_server: NOTICE: server default port will be changed to :9931 in a future release
+0.13.595.092 W srv  llama_server:         ref: https://github.com/ggml-org/llama.cpp/pull/26508
+1.08.111.160 I srv    operator(): operator(): cleaning up before exit...

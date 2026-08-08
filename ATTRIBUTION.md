@@ -25,3 +25,18 @@ Y independently reviewed:
 This repository does not copy the upstream launch scripts or workflow files.
 If code is incorporated later, its original copyright and MIT notice must be
 preserved in the copied files and in the release package.
+
+## DeepSeek V4 Flash DGX Spark proof
+
+- Base model: DeepSeek V4 Flash 0731 by DeepSeek AI
+- Base source: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731
+- Consumed GGUF target and upstream DSpark artifact: Unsloth
+- GGUF source: https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF
+- Quantization and inference runtime: llama.cpp by its contributors
+- Runtime source: https://github.com/ggml-org/llama.cpp
+
+Y's contribution is the pinned IQ3_M sidecar derivation recipe, exact-device
+execution, comparative measurements, regression harness, raw evidence review,
+and publication format. Y did not create the base model or the upstream GGUF
+target. This Git repository does not redistribute either upstream or derived
+model weights.

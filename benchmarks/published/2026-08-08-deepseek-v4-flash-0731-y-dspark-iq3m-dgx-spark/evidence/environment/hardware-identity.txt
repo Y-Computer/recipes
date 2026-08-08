@@ -1,0 +1,4 @@
+sys_vendor=NVIDIA
+product_name=NVIDIA_DGX_Spark
+board_vendor=NVIDIA
+board_name=P4242

@@ -1,0 +1,1 @@
+/workspace/y/src/llama.cpp/build/bin/llama-quantize --allow-requantize /workspace/y/models/dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf /workspace/y/models/dspark-DeepSeek-V4-Flash-0731-Y-IQ3_M.gguf IQ3_M 20

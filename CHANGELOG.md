@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 — 2026-08-08
+
+- Proved DeepSeek V4 Flash 0731 on an actual NVIDIA DGX Spark at a fixed 32K
+  server context.
+- Built the reproducible Y `IQ3_M` DSpark sidecar, reducing the draft artifact
+  by 21.64% while matching upstream measured speed and 6/6 integration smoke.
+- Published fixed-generation comparisons, unified-memory telemetry, exact
+  hardware identity, conversion logs, hashes, commands, and a run manifest.
+- Added a deterministic fixed-generation benchmark harness with tests.
+
 ## 0.3.0 — 2026-08-08
 
 - Published the first live Y cloud run: DeepSeek V4 Flash 0731 IQ3 on one H200.

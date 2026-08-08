@@ -1,0 +1,7 @@
+               total        used        free      shared  buff/cache   available
+Mem:     130663821312 123081904128   890855424   917581824  8787922944  7581917184
+Swap:    17179865088   700772352 16479092736
+VmRSS:	 1885756 kB
+RssAnon:	  855572 kB
+RssFile:	  135192 kB
+VmSwap:	       0 kB

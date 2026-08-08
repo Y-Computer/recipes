@@ -28,6 +28,9 @@ pinned standardized benchmarks and the measurements required by
 
 ## Published runs
 
+- [DeepSeek V4 Flash 0731 with Y `IQ3_M` DSpark on one NVIDIA DGX Spark](published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md)
+  — exact-device fit, fixed generation, unified-memory telemetry, conversion
+  evidence, and 6/6 integration smoke for target-only, upstream, and Y paths.
 - [DeepSeek V4 Flash 0731 `UD-IQ3_XXS` on one H200](published/2026-08-08-deepseek-v4-flash-0731-iq3xxs-h200/README.md)
   — provisional raw evidence for target-only and DSpark performance, adaptive
   smoke testing, and a 20-prompt IFEval pilot.
@@ -71,6 +74,30 @@ configuration with `--metadata`.
 
 Use `--list-cases` to inspect case IDs and `--only CASE_ID` for a debugging run.
 The full six-case run is the evidence run.
+
+## Fixed-generation performance run
+
+Use the companion runner for a repeatable decode-throughput comparison:
+
+```bash
+python3 scripts/run_fixed_generation.py \
+  --base-url http://127.0.0.1:8080/v1 \
+  --model exact-served-model-id \
+  --output benchmarks/results/fixed-generation.jsonl \
+  --runs 5 \
+  --max-tokens 256 \
+  --temperature 0 \
+  --seed 42 \
+  --ignore-eos \
+  --reasoning-mode off
+```
+
+It sends one warm-up followed by five unchanged, sequential requests and fails
+the run if a measured response does not contain exactly 256 completion tokens.
+The JSONL retains the credential-free request and response, client wall
+latency, server timing, draft acceptance, failures, and a derived summary.
+Compare profiles only when the target, prompt, output length, context, runtime,
+batching, hardware, and sampling settings are otherwise identical.
 
 ## API-key handling
 

@@ -1,0 +1,2 @@
+Available devices:
+  CUDA0: NVIDIA GB10 (124610 MiB, 116509 MiB free)

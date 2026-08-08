@@ -1,0 +1,526 @@
+{
+  "schema_version": "1.0.0",
+  "manifest": {
+    "created_at": "2026-08-08T13:30:20Z",
+    "updated_at": "2026-08-08T13:39:06Z",
+    "generator": "Y Proof Lab manual evidence review",
+    "notes": "Exact-device DGX Spark fit, performance, memory, quantization, and integration-smoke evidence."
+  },
+  "run": {
+    "id": "deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark-20260808",
+    "status": "completed",
+    "evidence_class": "unclassified",
+    "provisional": true,
+    "provisional_reasons": [
+      "The run lacks the full standardized quality, streaming, concurrency, power, and thermal protocol required by Y verification.",
+      "The Y sidecar is a requantization of an already-quantized mixed-tensor draft.",
+      "The longest tested quality input was 18,072 tokens, below the configured 32,768-token context."
+    ],
+    "organization": "Y Computer",
+    "operator": "Y Proof Lab",
+    "timestamps": {
+      "requested_at": null,
+      "started_at": "2026-08-08T12:55:46Z",
+      "finished_at": "2026-08-08T13:23:15Z"
+    }
+  },
+  "provenance": {
+    "recipe_repository": {
+      "url": "https://github.com/Y-Computer/recipes",
+      "revision": "8f241ee52d3dab5b56b93b7c03aec754f769bdcd",
+      "dirty": true
+    },
+    "harness_repository": {
+      "url": "https://github.com/Y-Computer/recipes",
+      "revision": "8f241ee52d3dab5b56b93b7c03aec754f769bdcd",
+      "dirty": true
+    },
+    "parent_run_ids": [
+      "deepseek-v4-flash-0731-iq3xxs-h200-20260808"
+    ],
+    "source_claims": [
+      {
+        "claim": "DeepSeek V4 Flash 0731 is the upstream base model.",
+        "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "accessed_at": "2026-08-08T12:00:00Z"
+      },
+      {
+        "claim": "Unsloth distributed the consumed UD-IQ3_XXS target and upstream DSpark GGUF at the pinned revision.",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/tree/fbbb5b93fb787c21338159b0af3318bb3f4d9768",
+        "accessed_at": "2026-08-08T12:00:00Z"
+      }
+    ]
+  },
+  "model": {
+    "repository": {
+      "id": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+      "url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF",
+      "requested_revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768",
+      "resolved_revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768"
+    },
+    "license": {
+      "spdx_or_name": "MIT",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/blob/main/LICENSE",
+      "commercial_use_reviewed": true,
+      "territory": "United States",
+      "authorization_reference": null
+    },
+    "files": [
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/fbbb5b93fb787c21338159b0af3318bb3f4d9768/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf",
+        "size_bytes": 5257696,
+        "sha256": "dec1cee704800267d9d836d5a61aefc33705be939bbb3058fa9006d98191576d"
+      },
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00002-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/fbbb5b93fb787c21338159b0af3318bb3f4d9768/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00002-of-00004.gguf",
+        "size_bytes": 49910532416,
+        "sha256": "3064d3c4c1d6363e9f9ad88e90a3e2c5fb2d6f7ae16ca72135c3ce6a5c984da5"
+      },
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00003-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/fbbb5b93fb787c21338159b0af3318bb3f4d9768/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00003-of-00004.gguf",
+        "size_bytes": 49257859456,
+        "sha256": "2e9b2732eca7da8324f731653624a4f5c9846258926fd9f468cc703afb51a019"
+      },
+      {
+        "role": "weights",
+        "path": "UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00004-of-00004.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/fbbb5b93fb787c21338159b0af3318bb3f4d9768/UD-IQ3_XXS/DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00004-of-00004.gguf",
+        "size_bytes": 5034198464,
+        "sha256": "4ca79d8e5107dd1b9bb57b176a7c09948837425dee49f0f1dfd6547a3769fea7"
+      },
+      {
+        "role": "weights",
+        "path": "dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf",
+        "source_url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/fbbb5b93fb787c21338159b0af3318bb3f4d9768/dspark-DeepSeek-V4-Flash-0731-Q8_0.gguf",
+        "size_bytes": 10896057440,
+        "sha256": "2c7ac54b0b64a99df1f139a9f1371a00198265e1d6a614b77597d20a655a4249"
+      },
+      {
+        "role": "weights",
+        "path": "dspark-DeepSeek-V4-Flash-0731-Y-IQ3_M.gguf",
+        "source_url": null,
+        "size_bytes": 8537851488,
+        "sha256": "02d621a2075faddc5dbb792166568fe57dbafc991e8b86e090e5109540e98954"
+      }
+    ],
+    "tokenizer": {
+      "repository": {
+        "id": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+        "url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF",
+        "requested_revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768",
+        "resolved_revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768"
+      },
+      "files": [],
+      "chat_template_sha256": null
+    },
+    "quantization": {
+      "is_quantized": true,
+      "format": "GGUF",
+      "method": "Unsloth UD-IQ3_XXS target plus Y IQ3_M requantized DSpark sidecar",
+      "nominal_bits_per_weight": null,
+      "producer_repository": {
+        "id": "ggml-org/llama.cpp",
+        "url": "https://github.com/ggml-org/llama.cpp",
+        "requested_revision": "69bf6437914596fbbc4caf09a7ac16f2acdd1a94",
+        "resolved_revision": "69bf6437914596fbbc4caf09a7ac16f2acdd1a94"
+      },
+      "base_model_revision": "7872f01b1d1fe23eabc4c98b48bffcef5a386062",
+      "calibration": {
+        "dataset": null,
+        "revision": null,
+        "description": "llama-quantize IQ3_M requantization; no calibration dataset supplied",
+        "sha256": null
+      }
+    }
+  },
+  "runtime": {
+    "engine": {
+      "name": "llama.cpp",
+      "version": "b10327",
+      "repository_url": "https://github.com/ggml-org/llama.cpp",
+      "revision": "69bf6437914596fbbc4caf09a7ac16f2acdd1a94"
+    },
+    "container": {
+      "image": null,
+      "digest": null,
+      "registry_url": null
+    },
+    "build": {
+      "base_image_digest": null,
+      "build_flags": [
+        "CMAKE_BUILD_TYPE=Release",
+        "BUILD_SHARED_LIBS=OFF",
+        "GGML_CUDA=ON",
+        "GGML_NATIVE=ON",
+        "CMAKE_CUDA_ARCHITECTURES=121a-real",
+        "LLAMA_BUILD_UI=OFF"
+      ],
+      "features": [
+        "CUDA",
+        "flash-attention",
+        "direct I/O",
+        "DSpark speculative decoding"
+      ],
+      "patches": []
+    },
+    "launch": {
+      "command": {
+        "argv": [
+          "llama-server",
+          "--model",
+          "DeepSeek-V4-Flash-0731-UD-IQ3_XXS-00001-of-00004.gguf",
+          "--spec-draft-model",
+          "dspark-DeepSeek-V4-Flash-0731-Y-IQ3_M.gguf",
+          "--spec-type",
+          "draft-dspark",
+          "--spec-draft-n-max",
+          "3",
+          "--load-mode",
+          "dio",
+          "--ctx-size",
+          "32768",
+          "--parallel",
+          "1",
+          "--n-gpu-layers",
+          "all",
+          "--flash-attn",
+          "on",
+          "--batch-size",
+          "2048",
+          "--ubatch-size",
+          "512",
+          "--cache-type-k",
+          "f16",
+          "--cache-type-v",
+          "f16",
+          "--cache-ram",
+          "0",
+          "--ctx-checkpoints",
+          "0",
+          "--fit",
+          "off",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "8080"
+        ],
+        "display": "See evidence/raw/performance/server-y-dspark-iq3m.command.txt for the complete captured argv."
+      },
+      "configuration": {
+        "context_tokens": 32768,
+        "parallel_slots": 1,
+        "full_gpu_offload": true,
+        "flash_attention": true,
+        "batch_tokens": 2048,
+        "microbatch_tokens": 512,
+        "draft_max_tokens": 3,
+        "listen_scope": "loopback",
+        "automatic_fit": false
+      },
+      "environment_allowlist": {},
+      "redacted_environment_keys": [
+        "HF_TOKEN",
+        "OPENAI_API_KEY",
+        "VAST_API_KEY"
+      ]
+    }
+  },
+  "infrastructure": {
+    "provider": {
+      "name": "Vast.ai",
+      "service": "Community Cloud",
+      "region": null,
+      "availability": "community",
+      "instance_type": "NVIDIA DGX Spark",
+      "instance_id": null
+    },
+    "hardware": {
+      "gpu": [
+        {
+          "name": "NVIDIA GB10",
+          "count": 1,
+          "memory_bytes_each": null,
+          "uuid": "[REDACTED]",
+          "compute_capability": "12.1",
+          "power_limit_watts": null
+        }
+      ],
+      "cpu": "20 ARM64 cores: 10 Cortex-X925 and 10 Cortex-A725",
+      "host_memory_bytes": 130663821312,
+      "storage": [
+        {
+          "kind": "container disk",
+          "capacity_bytes": null,
+          "filesystem": "overlay"
+        }
+      ],
+      "interconnect": "NVIDIA unified CPU/GPU memory",
+      "exact_target_hardware": true
+    },
+    "software": {
+      "os": "Linux",
+      "kernel": "6.17.0-1014-nvidia",
+      "architecture": "aarch64",
+      "nvidia_driver": "580.142",
+      "cuda_runtime": "CUDA toolkit 13.0.88",
+      "firmware": null
+    },
+    "pricing": {
+      "currency": "USD",
+      "gpu_hour_rate": 0.5096296,
+      "cpu_hour_rate": null,
+      "host_memory_gib_hour_rate": null,
+      "storage_gib_month_rate": null,
+      "egress_gib_rate": null,
+      "source_url": "https://cloud.vast.ai/",
+      "checked_at": "2026-08-08T12:38:00Z",
+      "notes": "Live all-in instance offer recorded at rental; not a standing list price."
+    },
+    "actual_cost": {
+      "billed_seconds": 3558.5192230639564,
+      "compute_usd": 0.5037574538,
+      "storage_usd": 0,
+      "network_usd": 0,
+      "other_usd": 0,
+      "total_usd": 0.5037574538,
+      "calculation": "Provider credit delta after termination; billed seconds are derived as total_usd / hourly_rate * 3600. Charge covers the full rental, including a later private five-prompt Arena harness pilot not included in this public bundle."
+    }
+  },
+  "workload": {
+    "suite": {
+      "name": "Y DeepSeek V4 Flash DGX Spark proof",
+      "version": "2026-08-08.1",
+      "repository_url": "https://github.com/Y-Computer/recipes",
+      "revision": "8f241ee52d3dab5b56b93b7c03aec754f769bdcd"
+    },
+    "command": {
+      "argv": [
+        "python3",
+        "scripts/run_fixed_generation.py",
+        "--base-url",
+        "http://127.0.0.1:8080/v1",
+        "--model",
+        "deepseek-v4-flash-0731-iq3xxs",
+        "--runs",
+        "5",
+        "--max-tokens",
+        "256",
+        "--temperature",
+        "0",
+        "--seed",
+        "42",
+        "--ignore-eos"
+      ],
+      "display": "python3 scripts/run_fixed_generation.py --base-url http://127.0.0.1:8080/v1 --model deepseek-v4-flash-0731-iq3xxs --runs 5 --max-tokens 256 --temperature 0 --seed 42 --ignore-eos"
+    },
+    "configuration": {
+      "fixed_generation": {
+        "warmup_runs": 1,
+        "measured_runs": 5,
+        "generated_tokens": 256,
+        "thinking": false
+      },
+      "smoke_suite_version": "2026-08-08.3",
+      "smoke_reasoning_mode": "adaptive"
+    },
+    "inputs": [],
+    "prompt_class": "One deterministic fixed-generation prompt plus six synthetic integration cases",
+    "context": {
+      "configured_tokens": 32768,
+      "tested_input_tokens": 18072,
+      "max_output_tokens": 512
+    },
+    "concurrency": {
+      "clients": 1,
+      "arrival_pattern": "sequential"
+    },
+    "repetitions": {
+      "cold": 0,
+      "warm": 5,
+      "failed_included": true
+    },
+    "measurement_window": {
+      "warmup_seconds": null,
+      "measured_seconds": null,
+      "notes": "One warm-up plus five fixed-generation measurements per profile; smoke run once per profile; llama-bench used three repetitions."
+    }
+  },
+  "results": {
+    "claim_status": "provisional",
+    "publishable": true,
+    "labels": [
+      "PROVISIONAL",
+      "Y-RUN",
+      "EXACT-NVIDIA-DGX-SPARK",
+      "REQUANTIZED-DSPARK",
+      "INTEGRATION-SMOKE",
+      "NOT-FULL-Y-VERIFIED"
+    ],
+    "summary": {
+      "target_only_tokens_per_second": 16.925253602594417,
+      "y_dspark_tokens_per_second": 28.287464516989246,
+      "y_vs_target_speedup": 1.67131702609485,
+      "y_sidecar_size_reduction_fraction": 0.21642745231343052,
+      "y_smoke_passed": 6,
+      "y_smoke_total": 6
+    },
+    "metrics": [
+      {
+        "name": "target_only_generation_throughput",
+        "definition": "llama.cpp server-reported decode throughput for fixed 256-token requests",
+        "value": 16.925253602594417,
+        "unit": "tokens/second",
+        "aggregation": "mean",
+        "sample_count": 5,
+        "source": "server",
+        "provisional": true,
+        "evidence_path": "evidence/raw/performance/fixed-generation-target-only.jsonl",
+        "notes": "One warm-up excluded; one sequential client; exact output length."
+      },
+      {
+        "name": "upstream_dspark_generation_throughput",
+        "definition": "Decode throughput with the upstream DSpark sidecar",
+        "value": 28.086660110224148,
+        "unit": "tokens/second",
+        "aggregation": "mean",
+        "sample_count": 5,
+        "source": "server",
+        "provisional": true,
+        "evidence_path": "evidence/raw/performance/fixed-generation-dspark-ub512.jsonl",
+        "notes": "Same target, prompt, output length, runtime, hardware, and context."
+      },
+      {
+        "name": "y_dspark_generation_throughput",
+        "definition": "Decode throughput with the Y IQ3_M DSpark sidecar",
+        "value": 28.287464516989246,
+        "unit": "tokens/second",
+        "aggregation": "mean",
+        "sample_count": 5,
+        "source": "server",
+        "provisional": true,
+        "evidence_path": "evidence/raw/performance/fixed-generation-y-dspark-iq3m.jsonl",
+        "notes": "Same target, prompt, output length, runtime, hardware, and context."
+      },
+      {
+        "name": "y_dspark_speedup_vs_target_only",
+        "definition": "Mean Y DSpark decode throughput divided by target-only throughput",
+        "value": 1.67131702609485,
+        "unit": "ratio",
+        "aggregation": "ratio of means",
+        "sample_count": 5,
+        "source": "derived",
+        "provisional": true,
+        "evidence_path": "evidence/derived/summary.json",
+        "notes": "Prompt-class-specific; not a universal speed-up."
+      },
+      {
+        "name": "y_dspark_latency_reduction_vs_target_only",
+        "definition": "One minus Y mean wall latency divided by target-only mean wall latency",
+        "value": 0.393959027462195,
+        "unit": "fraction",
+        "aggregation": "ratio of means",
+        "sample_count": 5,
+        "source": "derived",
+        "provisional": true,
+        "evidence_path": "evidence/derived/summary.json",
+        "notes": "15,406.2412 ms target-only versus 9,336.8134 ms Y DSpark."
+      },
+      {
+        "name": "y_dspark_sidecar_size_reduction",
+        "definition": "One minus Y sidecar bytes divided by upstream sidecar bytes",
+        "value": 0.21642745231343052,
+        "unit": "fraction",
+        "aggregation": "derived",
+        "sample_count": 1,
+        "source": "derived",
+        "provisional": true,
+        "evidence_path": "evidence/derived/summary.json",
+        "notes": "Sidecar-only reduction; combined target-plus-sidecar reduction is 2.0488%."
+      },
+      {
+        "name": "y_dspark_minimum_mem_available",
+        "definition": "Minimum one-second /proc/meminfo MemAvailable sample during the full Y server session",
+        "value": 9.072208404541016,
+        "unit": "GiB",
+        "aggregation": "minimum",
+        "sample_count": 322,
+        "source": "provider",
+        "provisional": true,
+        "evidence_path": "evidence/raw/performance/memory-y-dspark-iq3m.log",
+        "notes": "DGX Spark unified memory; nvidia-smi device memory reporting is unsupported."
+      },
+      {
+        "name": "y_dspark_smoke_pass_rate",
+        "definition": "Pass fraction for the fixed six-case integration smoke suite",
+        "value": 1,
+        "unit": "fraction",
+        "aggregation": "mean",
+        "sample_count": 6,
+        "source": "client",
+        "provisional": true,
+        "evidence_path": "evidence/raw/smoke/y-dspark-iq3m/smoke-20260808-b5cb46ae31.jsonl",
+        "notes": "Integration gate only; not a standardized model-quality score."
+      }
+    ]
+  },
+  "artifacts": [],
+  "known_issues": [
+    {
+      "id": "not-full-y-verification",
+      "severity": "high",
+      "status": "open",
+      "summary": "The run lacks standardized full-quality, streaming, concurrency, sustained power, and thermal measurements.",
+      "impact": "The evidence cannot be promoted as a complete Y-verified product benchmark.",
+      "workaround": "Run the full acceptance protocol on the final product image and hardware.",
+      "evidence_path": "README.md"
+    },
+    {
+      "id": "requantized-draft",
+      "severity": "medium",
+      "status": "open",
+      "summary": "The Y sidecar was requantized from an already-quantized mixed-tensor artifact.",
+      "impact": "The six-case smoke result cannot establish broad quality preservation.",
+      "workaround": "Run full private Arena-Hard and broader paired-output regression suites.",
+      "evidence_path": "evidence/raw/quantization/quantize-dspark-iq3m.log"
+    },
+    {
+      "id": "context-not-filled",
+      "severity": "medium",
+      "status": "accepted",
+      "summary": "The server used a 32,768-token context, but the longest tested input was 18,072 tokens.",
+      "impact": "The run is not evidence of full-prompt quality at 32K.",
+      "workaround": "Add a deterministic near-32K prompt and standardized long-context suite.",
+      "evidence_path": "evidence/raw/smoke/y-dspark-iq3m/smoke-20260808-b5cb46ae31.jsonl"
+    },
+    {
+      "id": "container-digest-missing",
+      "severity": "medium",
+      "status": "open",
+      "summary": "The rented container image and immutable digest were not captured.",
+      "impact": "The base userspace cannot be reconstructed byte-for-byte.",
+      "workaround": "Pin and record the image digest before the next run.",
+      "evidence_path": "evidence/environment/uname.txt"
+    }
+  ],
+  "privacy": {
+    "contains_secrets": false,
+    "contains_private_inputs": false,
+    "redactions": [
+      "GPU UUID replaced with [REDACTED]",
+      "Ephemeral container hostname replaced with [REDACTED-HOST]",
+      "API credentials, account identifiers, instance identifiers, and public connection details omitted"
+    ],
+    "reviewed_for_publication_at": "2026-08-08T13:39:06Z",
+    "reviewed_by": "Y Proof Lab"
+  },
+  "extensions": {
+    "weight_distribution": false,
+    "private_arena_hard_results_included": false
+  }
+}

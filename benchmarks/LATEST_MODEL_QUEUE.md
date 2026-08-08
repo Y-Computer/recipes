@@ -14,7 +14,7 @@ runtime overhead and operating-system memory still have to fit.
 
 | Priority | Model | Available | License gate | First proof target | State |
 |---:|---|---:|---|---|---|
-| P0 | [DeepSeek V4 Flash 0731](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731) | Jul 31 | MIT | One H200, then a 128GB unified-memory device with a smaller Q2 | [First cloud run published](published/2026-08-08-deepseek-v4-flash-0731-iq3xxs-h200/README.md) |
+| P0 | [DeepSeek V4 Flash 0731](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731) | Jul 31 | MIT | One H200, then exact DGX Spark with Y IQ3_M DSpark | [Exact Spark fit-and-speed proof published](published/2026-08-08-deepseek-v4-flash-0731-y-dspark-iq3m-dgx-spark/README.md); private Arena-Hard next |
 | P0 | [Liquid LFM2.5 2.6B](https://huggingface.co/LiquidAI/LFM2.5-2.6B) / [official GGUF](https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF) | Jul 28 / Aug 1 | LFM Open License; commercial grant is revenue-limited | Q4 on Android-class ARM, then laptop CPU/GPU | Queued |
 | P0 | [Microsoft VibeVoice ASR BitNet](https://huggingface.co/microsoft/VibeVoice-ASR-BitNet) | Jul 24 | MIT | ARM/AVX2 CPU speech recognition | Queued |
 | P0 | [Audio8 TTS Preview 0.6B](https://huggingface.co/Audio8/Audio8-TTS-Preview-0.6b) / [INT4 ONNX](https://huggingface.co/Audio8/Audio8-TTS-Preview-0.6B-ONNX-INT4) | Jul 28 / Jul 31 | Apache-2.0 | INT4 phone/laptop CPU speech generation | Queued |

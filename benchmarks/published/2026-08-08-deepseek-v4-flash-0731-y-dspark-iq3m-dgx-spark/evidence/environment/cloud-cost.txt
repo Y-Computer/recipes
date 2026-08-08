@@ -1,0 +1,7 @@
+provider=Vast.ai
+offer_rate_usd_per_hour=0.5096296296296297
+instance_start_utc=2026-08-08T12:38:22Z
+terminated_utc=2026-08-08T13:39:06Z
+provider_charge_usd=0.5037574538
+provider_billed_seconds_derived=3558.5192230639564
+calculation=provider credit delta after termination; billed seconds = charge / hourly rate * 3600

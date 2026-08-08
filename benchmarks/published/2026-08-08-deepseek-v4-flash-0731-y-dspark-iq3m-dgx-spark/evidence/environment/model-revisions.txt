@@ -1,0 +1,4 @@
+base_repository=deepseek-ai/DeepSeek-V4-Flash-0731
+base_revision=7872f01b1d1fe23eabc4c98b48bffcef5a386062
+gguf_repository=unsloth/DeepSeek-V4-Flash-0731-GGUF
+gguf_revision=fbbb5b93fb787c21338159b0af3318bb3f4d9768

@@ -19,6 +19,9 @@ media.
 Model weights and runtimes retain their own terms. In particular:
 
 - DeepSeek V4 Flash 0731 is distributed under MIT by DeepSeek.
+- The consumed DeepSeek V4 Flash GGUF target and DSpark input were distributed
+  by Unsloth and retain their upstream model terms and notices.
+- llama.cpp is distributed under the MIT License by its contributors.
 - MiniMax H3 is governed by the MiniMax H3 Community License, which is not an
   OSI open-source license and excludes several territories, including the
   United States and European Union, absent separate authorization.
